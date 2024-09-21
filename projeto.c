@@ -39,8 +39,25 @@ int main(void) {
 
 
 
+// --== * Funções de Cor * ==-- //
+// Retiradas de: https://www.theurbanpenguin.com/4184-2/
+void yellow() {
+    printf("\033[0;33m");
+}
+
+void green() {
+    printf("\033[0;32m");
+}
+
+void reset_color() { 
+    printf("\033[0m");
+}
+
+
+
 // --== * Tela Principal * ==-- //
 void menu_principal(void) {
+    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -60,12 +77,14 @@ void menu_principal(void) {
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("\n");
+    reset_color();
 }
 
 
 
 // --== * Tela de Informações * ==-- //
 void menu_informacoes(void) {
+    green();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -90,12 +109,14 @@ void menu_informacoes(void) {
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("\n");
+    reset_color();
 }
 
 
 
 // --== * Informações sobre a Equipe * ==-- //
 void menu_equipe(void) {
+    green();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -121,4 +142,5 @@ void menu_equipe(void) {
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("\n");
+    reset_color();
 }
