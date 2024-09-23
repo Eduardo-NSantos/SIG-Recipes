@@ -55,6 +55,7 @@ void reset_color() {
 
 
 
+
 // --== * Tela Principal * ==-- //
 void menu_principal(void) {
     yellow();
