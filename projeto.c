@@ -24,6 +24,7 @@ void menu_informacoes(void);
 void menu_equipe(void);
 void autenticacao(void);
 void login_cadastro(void);
+void cadastro(void);
 //       --== ** ==--        //
 
 
@@ -40,9 +41,10 @@ void login_cadastro(void);
 
 // --== * Função Principal * ==-- //
 int main(void) {
-    menu_principal();
     login_cadastro();
+    cadastro();
     autenticacao();
+    menu_principal();
     menu_informacoes();
     menu_equipe();
 
@@ -112,6 +114,34 @@ void login_cadastro(void) {
     printf("//                                                                            //\n");
     printf("//             (* 1 *) ---===      * Entrar *       ===---                    //\n");
     printf("//             (* 2 *) ---===     * Registrar *     ===---                    //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Tela de Cadastro * ==-- //
+void cadastro(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                        ---== * Cadastrar-se * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Usuário:                                                      //\n");
+    printf("//         --== Email:                                                        //\n");
+    printf("//         --== Senha:                                                        //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
