@@ -23,6 +23,7 @@ void menu_principal(void);
 void menu_informacoes(void);
 void menu_equipe(void);
 void autenticacao(void);
+void login_cadastro(void);
 //       --== ** ==--        //
 
 
@@ -40,6 +41,7 @@ void autenticacao(void);
 // --== * Função Principal * ==-- //
 int main(void) {
     menu_principal();
+    login_cadastro();
     autenticacao();
     menu_informacoes();
     menu_equipe();
@@ -92,6 +94,33 @@ void menu_principal(void) {
     getchar();
     reset_color();
 }
+
+
+
+// --== * Tela de Login e Cadastro * ==-- //
+void login_cadastro(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Login/Cadastro * ==---                       //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) ---===      * Entrar *       ===---                    //\n");
+    printf("//             (* 2 *) ---===     * Registrar *     ===---                    //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
 
 
 // --== * Tela de Autenticação * ==-- //
