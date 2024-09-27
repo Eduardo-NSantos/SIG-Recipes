@@ -7,17 +7,26 @@
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 //                                                                            //
-//                                Versão 0.1                                  //
+//                                Versão 0.2                                  //
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
 #include <stdio.h>
+#include <stdlib.h>
+
+
+
+
 
 // --== * Assinaturas * ==-- //
 void menu_principal(void);
 void menu_informacoes(void);
 void menu_equipe(void);
+void autenticacao(void);
 //       --== ** ==--        //
+
+
+
 
 
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
@@ -31,6 +40,7 @@ void menu_equipe(void);
 // --== * Função Principal * ==-- //
 int main(void) {
     menu_principal();
+    autenticacao();
     menu_informacoes();
     menu_equipe();
 
@@ -56,8 +66,9 @@ void reset_color() {
 
 
 
-// --== * Tela Principal * ==-- //
+// --== * Menu Principal * ==-- //
 void menu_principal(void) {
+    system("clear||cls");
     yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -76,8 +87,34 @@ void menu_principal(void) {
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
-    printf("                       -------======= *  * =======-------                       \n");
+    printf("                       -------======= *  * =======--------                      \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+// --== * Tela de Autenticação * ==-- //
+void autenticacao(void) {
+    system("clear||cls");
+    yellow();
     printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                        ---== * Autenticação * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --= Usuário/Email:                                                 //\n");
+    printf("//         --= Senha:                                                         //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
     reset_color();
 }
 
@@ -85,6 +122,7 @@ void menu_principal(void) {
 
 // --== * Tela de Informações * ==-- //
 void menu_informacoes(void) {
+    system("clear||cls");
     green();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -109,7 +147,8 @@ void menu_informacoes(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("\n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
     reset_color();
 }
 
@@ -117,6 +156,7 @@ void menu_informacoes(void) {
 
 // --== * Informações sobre a Equipe * ==-- //
 void menu_equipe(void) {
+    system("clear||cls");
     green();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -142,6 +182,7 @@ void menu_equipe(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("\n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
     reset_color();
 }
