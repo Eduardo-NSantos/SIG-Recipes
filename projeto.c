@@ -28,6 +28,7 @@ void cadastro(void);
 void menu_cozinheiros(void);
 void ver_dados_coz(void);
 void altera_dados_coz(void);
+void deleta_conta(void);
 //       --== ** ==--        //
 
 
@@ -51,6 +52,7 @@ int main(void) {
     menu_cozinheiros();
     ver_dados_coz();
     altera_dados_coz();
+    deleta_conta();
     menu_informacoes();
     menu_equipe();
 
@@ -190,6 +192,33 @@ void altera_dados_coz(void) {
     printf("//         --== Senha:                                                        //\n");
     printf("//                                                                            //\n");
     printf("//         ---== Informações Adicionais (Opcional):                           //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Deletar Conta * ==-- //
+void deleta_conta(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Deletar Conta * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//       ---=== Você perderá acesso a esta conta permanentemente ===---       //\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---=== Confirmar (S/N):  ===---                       //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
