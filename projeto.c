@@ -26,6 +26,7 @@ void autenticacao(void);
 void login_cadastro(void);
 void cadastro(void);
 void menu_cozinheiros(void);
+void ver_dados_coz(void);
 //       --== ** ==--        //
 
 
@@ -47,6 +48,7 @@ int main(void) {
     autenticacao();
     menu_principal();
     menu_cozinheiros();
+    ver_dados_coz();
     menu_informacoes();
     menu_equipe();
 
@@ -118,6 +120,44 @@ void menu_cozinheiros(void) {
     printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
     printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
     printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Visualiza Dados dos Cozinheiros * ==-- //
+void ver_dados_coz(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                            ---== * Dados * ==---                           //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---===       Nome        ===---                      //\n");
+    printf("//                       ---===      Usuário      ===---                      //\n");
+    printf("//                       ---===       Email       ===---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//                    ---=== Informações Adicionais ===---                    //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                     ----==== Lista de Receitas ====----                    //\n");
+    printf("//                                                                            //\n");
+    printf("//                         (* 1 *) Receita 1                                  //\n");
+    printf("//                         (* 2 *) Receita 2                                  //\n");
+    printf("//                         (* 3 *) Receita 3                                  //\n");
+    printf("//                         (* 0 *) Retornar                                   //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
