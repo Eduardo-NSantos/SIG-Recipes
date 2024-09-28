@@ -25,6 +25,7 @@ void menu_equipe(void);
 void autenticacao(void);
 void login_cadastro(void);
 void cadastro(void);
+void menu_cozinheiros(void);
 //       --== ** ==--        //
 
 
@@ -45,6 +46,7 @@ int main(void) {
     cadastro();
     autenticacao();
     menu_principal();
+    menu_cozinheiros();
     menu_informacoes();
     menu_equipe();
 
@@ -92,6 +94,34 @@ void menu_principal(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======--------                      \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Menu dos Cozinheiros * ==-- //
+void menu_cozinheiros(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                         ---== * Cozinheiros * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) ---===       * Dados *        ===---                   //\n");
+    printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
+    printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
+    printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
     reset_color();
