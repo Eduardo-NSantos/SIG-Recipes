@@ -9,5 +9,5 @@ Professor:
 - Flavius Gorgônio | @flgorgonio | flavius.gorgonio@ufrn.br
 
 Desenvolvedores:
-- Moisés Lucena    | moises.lucena.713@ufrn.edu.br  | [Github](https://github.com/MoisesLuc)
+- Moisés Lucena    | moisesbrats98@gmail.com        | [Github](https://github.com/MoisesLuc)
 - Isaque Guimarães | isaqueguimaraes388@gmail.com   | [Github](https://github.com/Isaqueguicar)
