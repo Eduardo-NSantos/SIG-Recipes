@@ -27,6 +27,7 @@ void login_cadastro(void);
 void cadastro(void);
 void menu_cozinheiros(void);
 void ver_dados_coz(void);
+void altera_dados_coz(void);
 //       --== ** ==--        //
 
 
@@ -49,6 +50,7 @@ int main(void) {
     menu_principal();
     menu_cozinheiros();
     ver_dados_coz();
+    altera_dados_coz();
     menu_informacoes();
     menu_equipe();
 
@@ -158,6 +160,36 @@ void ver_dados_coz(void) {
     printf("//                         (* 2 *) Receita 2                                  //\n");
     printf("//                         (* 3 *) Receita 3                                  //\n");
     printf("//                         (* 0 *) Retornar                                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Altera Dados dos Cozinheiros * ==-- //
+void altera_dados_coz(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Alterar Dados * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Usuário:                                                      //\n");
+    printf("//         --== Email:                                                        //\n");
+    printf("//         --== Senha:                                                        //\n");
+    printf("//                                                                            //\n");
+    printf("//         ---== Informações Adicionais (Opcional):                           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -299,7 +331,7 @@ void menu_equipe(void) {
     printf("//                         Projeto desenvolvido por:                          //\n");
     printf("//                                                                            //\n");
     printf("//                        ---=== Moisés Lucena ===---                         //\n");
-    printf("//                 ---=== moises.lucena.713@ufrn.edu.br ===---                //\n");
+    printf("//                   ---=== moisesbrats98@gmail.com ===---                    //\n");
     printf("//                                                                            //\n");
     printf("//                                                                            //\n");
     printf("//                       ---=== Isaque Guimarães ===---                       //\n");
