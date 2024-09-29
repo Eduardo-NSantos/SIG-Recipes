@@ -17,7 +17,6 @@
 
 
 
-
 // --== * Assinaturas * ==-- //
 void menu_principal(void);
 void menu_informacoes(void);
