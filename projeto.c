@@ -29,6 +29,7 @@ void menu_cozinheiros(void);
 void ver_dados_coz(void);
 void altera_dados_coz(void);
 void deleta_conta(void);
+void menu_usuarios(void);
 //       --== ** ==--        //
 
 
@@ -53,6 +54,7 @@ int main(void) {
     ver_dados_coz();
     altera_dados_coz();
     deleta_conta();
+    menu_usuarios();
     menu_informacoes();
     menu_equipe();
 
@@ -230,6 +232,35 @@ void deleta_conta(void) {
 
 
 
+// --== * Menu dos Usuários * ==-- //
+void menu_usuarios(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                         - --== * Usuários * ==---                          //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) ---===       * Dados *        ===---                   //\n");
+    printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
+    printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
+    printf("//             (* 4 *) ---=== * Receitas Favoritas * ===---                   //\n");
+    printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
 // --== * Tela de Login e Cadastro * ==-- //
 void login_cadastro(void) {
     system("clear||cls");
@@ -272,6 +303,7 @@ void cadastro(void) {
     printf("//         --== Nome:                                                         //\n");
     printf("//         --== Usuário:                                                      //\n");
     printf("//         --== Email:                                                        //\n");
+    printf("//         --== Função (Usuário/Cozinheiro):                                  //\n");
     printf("//         --== Senha:                                                        //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
