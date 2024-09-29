@@ -30,6 +30,7 @@ void ver_dados_coz(void);
 void altera_dados_coz(void);
 void deleta_conta(void);
 void menu_usuarios(void);
+void menu_receitas_usuarios(void);
 //       --== ** ==--        //
 
 
@@ -55,6 +56,7 @@ int main(void) {
     altera_dados_coz();
     deleta_conta();
     menu_usuarios();
+    menu_receitas_usuarios();
     menu_informacoes();
     menu_equipe();
 
@@ -250,6 +252,33 @@ void menu_usuarios(void) {
     printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
     printf("//             (* 4 *) ---=== * Receitas Favoritas * ===---                   //\n");
     printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Menu de Receitas * ==-- //
+void menu_receitas_usuarios(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                         - --== * Receitas * ==---                          //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) --== * Ver Receitas (Todas) * ==--                     //\n");
+    printf("//             (* 2 *) --==  * Receitas Favoritas *  ==--                     //\n");
+    printf("//             (* 0 *) ---===     * Retornar *     ===---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
