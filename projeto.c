@@ -26,6 +26,7 @@ void autenticacao(void);
 void cadastro(void);
 void menu_cozinheiro(void);
 void cadastra_receita(void);
+void altera_receita(void);
 void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
@@ -54,6 +55,7 @@ int main(void) {
 
     menu_cozinheiro();
     cadastra_receita();
+    altera_receita();
     
     menu_usuario();
     ver_dados();
@@ -179,6 +181,37 @@ void cadastra_receita(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//                      ---== * Cadastrar Receita * ==---                     //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Descrição:                                                    //\n");
+    printf("//         --== Ingredientes:                                                 //\n");
+    printf("//         --== Materiais:                                                    //\n");
+    printf("//         --== Tempo de Preparo:                                             //\n");
+    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//         --== Complexidade (1-5):                                           //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Altera Receitas  * ==-- //
+void altera_receita(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Alterar Receita * ==---                      //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
