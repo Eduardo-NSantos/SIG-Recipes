@@ -147,10 +147,11 @@ void menu_cozinheiro(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//             (* 1 *) ---===       * Dados *        ===---                   //\n");
-    printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
-    printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
-    printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//           (* 1 *) ---===  * Cadastrar Receita *  ===---                    //\n");
+    printf("//           (* 2 *) ---===  * Modificar Receita *  ===---                    //\n");
+    printf("//           (* 3 *) ---===   * Apagar Receita *    ===---                    //\n");
+    printf("//           (* 4 *) -= * Visualizar Receitas (Próprias) * =-                 //\n");
+    printf("//           (* 0 *) ---===      * Retornar *      ===---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
