@@ -25,10 +25,12 @@ void menu_equipe(void);
 void autenticacao(void);
 void cadastro(void);
 void menu_cozinheiro(void);
-void ver_dados_coz(void);
-void altera_dados_coz(void);
+void cadastra_receita(void);
+void ver_dados(void);
+void altera_dados(void);
 void deleta_conta(void);
 void menu_usuario(void);
+void menu_receitas(void);
 //       --== ** ==--        //
 
 
@@ -49,11 +51,17 @@ int main(void) {
     cadastro();
     autenticacao();
     menu_principal();
+
     menu_cozinheiro();
-    ver_dados_coz();
-    altera_dados_coz();
-    deleta_conta();
+    cadastra_receita();
+    
     menu_usuario();
+    ver_dados();
+    altera_dados();
+    deleta_conta();
+
+    menu_receitas();
+
     menu_informacoes();
     menu_equipe();
 
@@ -163,8 +171,39 @@ void menu_cozinheiro(void) {
 
 
 
-// --== * Visualiza Dados do Cozinheiro * ==-- //
-void ver_dados_coz(void) {
+// --== * Cadastra Receita * ==-- //
+void cadastra_receita(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---== * Cadastrar Receita * ==---                     //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Descrição:                                                    //\n");
+    printf("//         --== Ingredientes:                                                 //\n");
+    printf("//         --== Materiais:                                                    //\n");
+    printf("//         --== Tempo de Preparo:                                             //\n");
+    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//         --== Complexidade (1-5):                                           //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Visualiza Dados * ==-- //
+void ver_dados(void) {
     system("clear||cls");
     yellow();
     printf("\n");
@@ -179,6 +218,7 @@ void ver_dados_coz(void) {
     printf("//                       ---===       Nome        ===---                      //\n");
     printf("//                       ---===      Usuário      ===---                      //\n");
     printf("//                       ---===       Email       ===---                      //\n");
+    printf("//                  ---===  Número de Receitas: (* *)  ===---                 //\n");
     printf("//                                                                            //\n");
     printf("//                    ---=== Informações Adicionais ===---                    //\n");
     printf("//                                                                            //\n");
@@ -186,10 +226,10 @@ void ver_dados_coz(void) {
     printf("//                                                                            //\n");
     printf("//                ----==== Receitas mais Favoritadas ====----                 //\n");
     printf("//                                                                            //\n");
-    printf("//                         (* 1 *) Receita 1                                  //\n");
-    printf("//                         (* 2 *) Receita 2                                  //\n");
-    printf("//                         (* 3 *) Receita 3                                  //\n");
-    printf("//                         (* 0 *) Retornar                                   //\n");
+    printf("//                        (* ID *) Receita 1                                  //\n");
+    printf("//                        (* ID *) Receita 2                                  //\n");
+    printf("//                        (* ID *) Receita 3                                  //\n");
+    printf("//                        (* 0 *)  Retornar                                   //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -201,8 +241,8 @@ void ver_dados_coz(void) {
 
 
 
-// --== * Altera Dados do Cozinheiro * ==-- //
-void altera_dados_coz(void) {
+// --== * Altera Dados * ==-- //
+void altera_dados(void) {
     system("clear||cls");
     yellow();
     printf("\n");
@@ -275,6 +315,34 @@ void menu_usuario(void) {
     printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
     printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
     printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+
+// --== * Menu de Receitas  * ==-- //
+void menu_receitas(void) {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                         - --== * Receitas * ==---                          //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) --== * Ver Receitas (Todas) * ==--                     //\n");
+    printf("//             (* 2 *) --==  * Receitas Favoritas *  ==--                     //\n");
+    printf("//             (* 0 *) ---===     * Retornar *     ===---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
