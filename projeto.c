@@ -29,6 +29,7 @@ void cadastra_receita(void);
 void altera_receita(void);
 void deleta_receita(void);
 void ver_receitas(void);
+void expandir_receita(void);
 void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
@@ -60,6 +61,7 @@ int main(void) {
     altera_receita();
     deleta_receita();
     ver_receitas();
+    expandir_receita();
     
     menu_usuario();
     ver_dados();
@@ -266,14 +268,14 @@ void deleta_receita(void) {
 
 
 
-// --== * Visualiza Receitas (Próprias) * ==-- //
+// --== * Visualiza Receitas * ==-- //
 void ver_receitas(void) {
     system("clear||cls");
     yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                       ----==== Suas Receitas ====----                      //\n");
+    printf("//                        ---=== * Receitas * ===---                          //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -282,6 +284,7 @@ void ver_receitas(void) {
     printf("//                         (* 1 *) Receita 1                                  //\n");
     printf("//                         (* 2 *) Receita 2                                  //\n");
     printf("//                         (* 3 *) Receita 3                                  //\n");
+    printf("//                         (* 0 *) Retornar                                   //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -292,6 +295,51 @@ void ver_receitas(void) {
     printf("//                        --= ( * Ingredientes * ) =--                        //\n");
     printf("//                        --= ( * Complexidade * ) =--                        //\n");
     printf("//                         --= ( * Favoritos * ) =--                          //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+    reset_color();
+}
+
+
+
+// --== * Mostra detalhes da receita * ==-- //
+void expandir_receita() {
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                         --== Nome da Receita ==--                          //\n");
+    printf("//                            --== Cozinheiro ==--                            //\n");
+    printf("//                         --== Data de Cadastro ==--                         //\n");
+    printf("//                         --== Tempo de Preparo ==--                         //\n");
+    printf("//                           --== Complexidade ==--                           //\n");
+    printf("//                                                                            //\n");
+    printf("//                                 Descrição                                  //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                ---=== * Ingredientes / Materiais * ===---                  //\n");
+    printf("//                                                                            //\n");
+    printf("//                            -= Ingrediente 1 =-                             //\n");
+    printf("//                            -= Ingrediente 2 =-                             //\n");
+    printf("//                            -= Ingrediente 3 =-                             //\n");
+    printf("//                                                                            //\n");
+    printf("//                              -= Material 1 =-                              //\n");
+    printf("//                              -= Material 1 =-                              //\n");
+    printf("//                              -= Material 1 =-                              //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                     ---=== * Modo de Preparo * ===---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Deseja Favoritar? (S/N):                                      //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
