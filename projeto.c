@@ -31,13 +31,14 @@ void cadastra_receita(void);
 void altera_receita(void);
 void deleta_receita(void);
 void ver_receita(void);
-
 void expandir_receita(void);
 
+void modulo_usuario(void);
+char menu_usuario(void);
 void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
-void menu_usuario(void);
+
 void menu_receitas(void);
 //       --== ** ==--        //
 
@@ -67,13 +68,13 @@ int main(void) {
             case '1':
                 modulo_cozinheiro();
                 break;
+            case '2':
+                modulo_usuario();
+                break;
         }    
     } while (opcao != '0');
     
-
-    expandir_receita();
     
-    menu_usuario();
     ver_dados();
     altera_dados();
     deleta_conta();
@@ -105,8 +106,17 @@ void modulo_cozinheiro(void) {
                 break;
             case '4':
                 ver_receita();
+                expandir_receita();
                 break;
         }
+    } while (opcao != '0');
+}
+
+void modulo_usuario(void) {
+    char opcao;
+
+    do {
+        opcao = menu_usuario();
     } while (opcao != '0');
 }
 
@@ -480,7 +490,8 @@ void deleta_conta(void) {
 
 
 // --== * Menu do Usuário * ==-- //
-void menu_usuario(void) {
+char menu_usuario(void) {
+    char opcao;
     system("clear||cls");
     yellow();
     printf("\n");
@@ -498,10 +509,11 @@ void menu_usuario(void) {
     printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    printf("               --== Escolha o destino desejado: ");
+    scanf(" %c", &opcao);
     getchar();
+    return opcao;
     reset_color();
 }
 
