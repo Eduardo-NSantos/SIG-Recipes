@@ -20,8 +20,11 @@
 // --== * Assinaturas * ==-- //
 void menu_inicio(void);
 char menu_principal(void);
+
+void modulo_informacoes(void);
 void menu_informacoes(void);
 void menu_equipe(void);
+
 void autenticacao(void);
 void cadastro(void);
 
@@ -75,11 +78,16 @@ int main(void) {
             case '3':
                 modulo_receitas();
                 break;
+            case '4':
+                modulo_informacoes();
+                break;
         }    
     } while (opcao != '0');
 
     return 0;
 }
+
+
 
 
 
@@ -122,6 +130,11 @@ void modulo_receitas(void) {
     } while (opcao != '0');
 }
 
+void modulo_informacoes(void) {
+    menu_informacoes();
+    getchar();
+    menu_equipe();
+}
 
 
 
