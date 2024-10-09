@@ -24,13 +24,16 @@ void menu_informacoes(void);
 void menu_equipe(void);
 void autenticacao(void);
 void cadastro(void);
+
 void modulo_cozinheiro(void);
 char menu_cozinheiro(void);
 void cadastra_receita(void);
 void altera_receita(void);
 void deleta_receita(void);
-void ver_receitas(void);
+void ver_receita(void);
+
 void expandir_receita(void);
+
 void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
@@ -68,10 +71,6 @@ int main(void) {
     } while (opcao != '0');
     
 
-    cadastra_receita();
-    altera_receita();
-    deleta_receita();
-    ver_receitas();
     expandir_receita();
     
     menu_usuario();
@@ -94,6 +93,20 @@ void modulo_cozinheiro(void) {
 
     do {
         opcao = menu_cozinheiro();
+        switch (opcao) {
+            case '1':
+                cadastra_receita();
+                break;
+            case '2':
+                altera_receita();
+                break;
+            case '3':
+                deleta_receita();
+                break;
+            case '4':
+                ver_receita();
+                break;
+        }
     } while (opcao != '0');
 }
 
@@ -195,6 +208,7 @@ char menu_cozinheiro(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("               --== Escolha o destino desejado: ");
     scanf(" %c", &opcao);
+    getchar();
     return opcao;
     reset_color();
 }
@@ -291,7 +305,7 @@ void deleta_receita(void) {
 
 
 // --== * Visualiza Receitas * ==-- //
-void ver_receitas(void) {
+void ver_receita(void) {
     system("clear||cls");
     yellow();
     printf("\n");
