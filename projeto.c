@@ -39,7 +39,8 @@ void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
 
-void menu_receitas(void);
+void modulo_receitas(void);
+char menu_receitas(void);
 //       --== ** ==--        //
 
 
@@ -71,18 +72,11 @@ int main(void) {
             case '2':
                 modulo_usuario();
                 break;
+            case '3':
+                modulo_receitas();
+                break;
         }    
     } while (opcao != '0');
-    
-    
-    ver_dados();
-    altera_dados();
-    deleta_conta();
-
-    menu_receitas();
-
-    menu_informacoes();
-    menu_equipe();
 
     return 0;
 }
@@ -119,6 +113,16 @@ void modulo_usuario(void) {
         opcao = menu_usuario();
     } while (opcao != '0');
 }
+
+void modulo_receitas(void) {
+    char opcao;
+
+    do {
+        opcao = menu_receitas();
+    } while (opcao != '0');
+}
+
+
 
 
 
@@ -521,7 +525,8 @@ char menu_usuario(void) {
 
 
 // --== * Menu de Receitas  * ==-- //
-void menu_receitas(void) {
+char menu_receitas(void) {
+    char opcao;
     system("clear||cls");
     yellow();
     printf("\n");
@@ -538,10 +543,11 @@ void menu_receitas(void) {
     printf("//             (* 0 *) ---===     * Retornar *     ===---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    printf("               --== Escolha o destino desejado: ");
+    scanf(" %c", &opcao);
     getchar();
+    return opcao;
     reset_color();
 }
 
