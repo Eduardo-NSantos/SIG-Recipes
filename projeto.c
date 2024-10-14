@@ -91,8 +91,6 @@ int main(void) {
 
 
 
-
-
 void modulo_cozinheiro(void) {
     char opcao;
 
@@ -116,6 +114,8 @@ void modulo_cozinheiro(void) {
     } while (opcao != '0');
 }
 
+
+
 void modulo_usuario(void) {
     char opcao;
 
@@ -135,13 +135,25 @@ void modulo_usuario(void) {
     } while (opcao != '0');
 }
 
+
+
 void modulo_receitas(void) {
     char opcao;
 
     do {
         opcao = menu_receitas();
+        switch (opcao) {
+            case '1':
+                ver_receitat();
+                break;
+            case '2':
+                ver_receitaf();
+                break;
+        }
     } while (opcao != '0');
 }
+
+
 
 void modulo_informacoes(void) {
     menu_informacoes();
@@ -423,6 +435,34 @@ void expandir_receita() {
 
 
 
+// --== * Menu do Usuário * ==-- //
+char menu_usuario(void) {
+    char opcao;
+    system("clear||cls");
+    yellow();
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                          ---== * Usuário * ==---                           //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//             (* 1 *) ---===       * Dados *        ===---                   //\n");
+    printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
+    printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
+    printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("               --== Escolha o destino desejado: ");
+    scanf(" %c", &opcao);
+    getchar();
+    return opcao;
+    reset_color();
+}
+
 // --== * Visualiza Dados * ==-- //
 void ver_dados(void) {
     system("clear||cls");
@@ -516,38 +556,6 @@ void deleta_conta(void) {
     getchar();
     reset_color();
 }
-
-
-
-// --== * Menu do Usuário * ==-- //
-char menu_usuario(void) {
-    char opcao;
-    system("clear||cls");
-    yellow();
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                          ---== * Usuário * ==---                           //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//             (* 1 *) ---===       * Dados *        ===---                   //\n");
-    printf("//             (* 2 *) ---===   * Alterar Dados *    ===---                   //\n");
-    printf("//             (* 3 *) ---===   * Deletar Conta *    ===---                   //\n");
-    printf("//             (* 0 *) ---===      * Retornar *      ===---                   //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("               --== Escolha o destino desejado: ");
-    scanf(" %c", &opcao);
-    getchar();
-    return opcao;
-    reset_color();
-}
-
-
 
 
 // --== * Menu de Receitas  * ==-- //
