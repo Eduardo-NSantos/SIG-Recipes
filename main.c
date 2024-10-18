@@ -101,26 +101,9 @@ void modulo_cozinheiro(void) {
 
 
 
-// --== * Funções de Cor * ==-- //
-// Retiradas de: https://www.theurbanpenguin.com/4184-2/
-void yellow() {
-    printf("\033[0;33m");
-}
-
-void green() {
-    printf("\033[0;32m");
-}
-
-void reset_color() { 
-    printf("\033[0m");
-}
-
-
-
 // --== * Menu Inicial * ==-- //
 void menu_inicio(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -138,7 +121,6 @@ void menu_inicio(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
 
 
@@ -147,7 +129,6 @@ void menu_inicio(void) {
 char menu_principal(void) {
     char opcao;
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -168,7 +149,6 @@ char menu_principal(void) {
     printf("               --== Escolha o destino desejado: ");
     scanf(" %c", &opcao);
     return opcao;
-    reset_color();
 }
 
 
@@ -177,7 +157,6 @@ char menu_principal(void) {
 char menu_cozinheiro(void) {
     char opcao;
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -199,7 +178,6 @@ char menu_cozinheiro(void) {
     scanf(" %c", &opcao);
     getchar();
     return opcao;
-    reset_color();
 }
 
 
@@ -207,7 +185,6 @@ char menu_cozinheiro(void) {
 // --== * Cadastra Receita * ==-- //
 void cadastra_receita(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -230,7 +207,6 @@ void cadastra_receita(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
 
 
@@ -238,7 +214,6 @@ void cadastra_receita(void) {
 // --== * Altera Receitas  * ==-- //
 void altera_receita(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -261,7 +236,6 @@ void altera_receita(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
 
 
@@ -269,7 +243,6 @@ void altera_receita(void) {
 // --== * Deleta Receita * ==-- //
 void deleta_receita(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -288,7 +261,6 @@ void deleta_receita(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
 
 
@@ -296,7 +268,6 @@ void deleta_receita(void) {
 // --== * Tela de Cadastro * ==-- //
 void cadastro(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -316,7 +287,6 @@ void cadastro(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
 
 
@@ -324,7 +294,6 @@ void cadastro(void) {
 // --== * Tela de Autenticação * ==-- //
 void autenticacao(void) {
     system("clear||cls");
-    yellow();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -342,5 +311,4 @@ void autenticacao(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    reset_color();
 }
