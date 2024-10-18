@@ -13,17 +13,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "informacoes.h"
 
 
 
 // --== * Assinaturas * ==-- //
 void menu_inicio(void);
 char menu_principal(void);
-
-void modulo_informacoes(void);
-void menu_informacoes(void);
-void menu_equipe(void);
 
 void autenticacao(void);
 void cadastro(void);
@@ -151,14 +147,6 @@ void modulo_receitas(void) {
                 break;
         }
     } while (opcao != '0');
-}
-
-
-
-void modulo_informacoes(void) {
-    menu_informacoes();
-    getchar();
-    menu_equipe();
 }
 
 
@@ -697,75 +685,6 @@ void autenticacao(void) {
     printf("//                                                                            //\n");
     printf("//         --= Usuário/Email:                                                 //\n");
     printf("//         --= Senha:                                                         //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
-    getchar();
-    reset_color();
-}
-
-
-
-// --== * Tela de Informações * ==-- //
-void menu_informacoes(void) {
-    system("clear||cls");
-    green();
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                   ---== * Informações Importantes * ==---                  //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//           -----===== * Caderno de Receitas Virtual * =====-----            //\n");
-    printf("//                                                                            //\n");
-    printf("//  Este é um sistema simples feito com intuito puramente educacional para a  //\n");
-    printf("//  disciplina DCT1106 - Programação, ministrada na Universidade Federal do   //\n");
-    printf("//  Rio Grande do Norte pelo professor Flavius Gorgônio. Através deste siste- //\n");
-    printf("//  ma busca-se providenciar o aprendizado prático dos conceitos abordados em //\n");
-    printf("//  sala de aula. O programa atua como um caderno virtual de receitas culiná- //\n");
-    printf("//  rias e disponibiliza diversas funcionalidades que auxiliam tanto o usuá-  //\n");
-    printf("//  rio comum em busca de receitas, quanto aqueles que buscam compartilhar    //\n");
-    printf("//  suas receitas.                                                            //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
-    getchar();
-    reset_color();
-}
-
-
-
-// --== * Informações sobre a Equipe * ==-- //
-void menu_equipe(void) {
-    system("clear||cls");
-    green();
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                  ---== * Equipe de Desenvolvimento * ==---                 //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                         Projeto desenvolvido por:                          //\n");
-    printf("//                                                                            //\n");
-    printf("//                        ---=== Moisés Lucena ===---                         //\n");
-    printf("//                   ---=== moisesbrats98@gmail.com ===---                    //\n");
-    printf("//                                                                            //\n");
-    printf("//                                                                            //\n");
-    printf("//                       ---=== Isaque Guimarães ===---                       //\n");
-    printf("//                 ---=== isaqueguimaraes388@gmail.com ===---                 //\n");
-    printf("//                                                                            //\n");
-    printf("//                               Disponível em:                               //\n");
-    printf("//             https://github.com/MoisesLuc/Projeto-Programacao.git           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
