@@ -11,26 +11,11 @@
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "informacoes.h"
-#include "receitas.h"
-#include "usuario.h"
 #include "cozinheiros.h"
-#include "relatorio.h"
-
-
-
-// --== * Assinaturas * ==-- //
-void menu_inicio(void);
-char menu_principal(void);
-
-void autenticacao(void);
-void cadastro(void);
-//       --== ** ==--        //
-
-
-
+#include "receitas.h"
 
 
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
@@ -39,112 +24,79 @@ void cadastro(void);
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
-
-
-// --== * Função Principal * ==-- //
-int main(void) {
+void modulo_cozinheiro(void) {
     char opcao;
-    
-    menu_inicio();
-    cadastro();
-    autenticacao();
 
     do {
-        opcao = menu_principal();
+        opcao = menu_cozinheiro();
         switch (opcao) {
             case '1':
-                modulo_cozinheiro();
+                cadastra_receita();
                 break;
             case '2':
-                modulo_usuario();
+                altera_receita();
                 break;
             case '3':
-                modulo_receitas();
+                deleta_receita();
                 break;
             case '4':
-                modulo_relatorio();
+                ver_receitas();
+                expandir_receita();
                 break;
-            case '5':
-                modulo_informacoes();
-                break;
-        }    
+        }
     } while (opcao != '0');
-
-    return 0;
 }
 
 
 
-// --== * Menu Inicial * ==-- //
-void menu_inicio(void) {
-    system("clear||cls");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                         ---== * Menu Início * ==---                        //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//             (* 1 *) ---===      * Entrar *       ===---                    //\n");
-    printf("//             (* 2 *) ---===     * Cadastrar *     ===---                    //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
-    getchar();
-}
-
-
-
-// --== * Menu Principal * ==-- //
-char menu_principal(void) {
+// --== * Menu do Cozinheiro * ==-- //
+char menu_cozinheiro(void) {
     char opcao;
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                       ---== * Menu Principal * ==---                       //\n");
+    printf("//                      ---== * Menu Cozinheiro * ==---                       //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//             (* 1 *) ---===  * Menu Cozinheiro *  ===---                    //\n");
-    printf("//             (* 2 *) ---===    * Menu Usuário *   ===---                    //\n");
-    printf("//             (* 3 *) ---===   * Menu Receitas  *  ===---                    //\n");
-    printf("//             (* 4 *) ---===   * Menu Relatório *  ===---                    //\n");
-    printf("//             (* 5 *) ---===    * Informações *    ===---                    //\n");
-    printf("//             (* 0 *) ---===       * Sair *        ===---                    //\n");
+    printf("//           (* 1 *) ---===  * Cadastrar Receita *  ===---                    //\n");
+    printf("//           (* 2 *) ---===  * Modificar Receita *  ===---                    //\n");
+    printf("//           (* 3 *) ---===   * Apagar Receita *    ===---                    //\n");
+    printf("//           (* 4 *) -= * Visualizar Receitas (Próprias) * =-                 //\n");
+    printf("//           (* 0 *) ---===      * Retornar *      ===---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("               --== Escolha o destino desejado: ");
     scanf(" %c", &opcao);
+    getchar();
     return opcao;
 }
 
 
 
-
-// --== * Tela de Cadastro * ==-- //
-void cadastro(void) {
+// --== * Cadastra Receita * ==-- //
+void cadastra_receita(void) {
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                        ---== * Cadastrar-se * ==---                        //\n");
+    printf("//                      ---== * Cadastrar Receita * ==---                     //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Usuário:                                                      //\n");
-    printf("//         --== Email:                                                        //\n");
-    printf("//         --== Senha:                                                        //\n");
+    printf("//         --== Descrição:                                                    //\n");
+    printf("//         --== Ingredientes:                                                 //\n");
+    printf("//         --== Materiais:                                                    //\n");
+    printf("//         --== Tempo de Preparo:                                             //\n");
+    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//         --== Complexidade (1-5):                                           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -155,20 +107,25 @@ void cadastro(void) {
 
 
 
-// --== * Tela de Autenticação * ==-- //
-void autenticacao(void) {
+// --== * Altera Receitas  * ==-- //
+void altera_receita(void) {
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                        ---== * Autenticação * ==---                        //\n");
+    printf("//                       ---== * Alterar Receita * ==---                      //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --= Usuário/Email:                                                 //\n");
-    printf("//         --= Senha:                                                         //\n");
+    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Descrição:                                                    //\n");
+    printf("//         --== Ingredientes:                                                 //\n");
+    printf("//         --== Materiais:                                                    //\n");
+    printf("//         --== Tempo de Preparo:                                             //\n");
+    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//         --== Complexidade (1-5):                                           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -176,3 +133,32 @@ void autenticacao(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 }
+
+
+
+// --== * Deleta Receita * ==-- //
+void deleta_receita(void) {
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Deletar Receita * ==---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//              ---=== Esta receita excluida permanentemente ===---           //\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---=== Confirmar (S/N):  ===---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+}
+
+
+
+
