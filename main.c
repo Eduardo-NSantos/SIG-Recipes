@@ -17,6 +17,7 @@
 #include "receitas.h"
 #include "usuario.h"
 #include "cozinheiros.h"
+#include "relatorio.h"
 
 
 
@@ -26,10 +27,6 @@ char menu_principal(void);
 
 void autenticacao(void);
 void cadastro(void);
-
-
-void modulo_relatorio(void);
-char menu_relatorio(void);
 //       --== ** ==--        //
 
 
@@ -75,24 +72,6 @@ int main(void) {
 
     return 0;
 }
-
-
-void modulo_relatorio(void) {
-    char opcao;
-
-    do {
-        opcao = menu_relatorio();
-        switch (opcao) {
-            case '1':
-                ver_dados();
-                break;
-            case '2':
-                ver_receitas();
-                break;
-        }
-    } while (opcao != '0');
-}
-
 
 
 
@@ -147,32 +126,6 @@ char menu_principal(void) {
     return opcao;
 }
 
-
-
-// --== * Menu Relatório * ==-- //
-char menu_relatorio(void) {
-    char opcao;
-    system("clear||cls");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                      ---== * Menu Relatório * ==---                        //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//           (* 1 *) ---===  * Consultar Usuários *  ===---                   //\n");
-    printf("//           (* 2 *) ---===  * Consultar Receitas *  ===---                   //\n");
-    printf("//           (* 0 *) ---===      * Retornar *      ===---                     //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("               --== Escolha o destino desejado: ");
-    scanf(" %c", &opcao);
-    getchar();
-    return opcao;
-}
 
 
 
