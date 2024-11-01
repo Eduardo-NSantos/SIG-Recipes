@@ -44,3 +44,19 @@ int valida_nome(char *nome){
     }
     return 1;
 }
+
+int valida_senha(char *senha){
+    char c;
+    int tamanho = strlen(senha);
+
+    if(tamanho > 24){
+        return 0;
+    }
+    for(int i = 0; i < tamanho; i++){
+        c = senha[i];
+        if(c == '"' || c == ' '){
+            return 0;
+        }
+    }
+    return 1;
+}
