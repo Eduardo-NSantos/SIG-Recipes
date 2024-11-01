@@ -28,3 +28,19 @@ int valida_email(char *email){
     }
     return 1;
 }
+
+int valida_nome(char *nome){
+    char c;
+    char tamanho = strlen(nome);
+
+    if(tamanho > 50){
+        return 0;
+    }
+    for(int i = 0; i < tamanho; i++){
+        c = nome[i];
+        if(!(isalpha(c) || c == ' ' || c == '.' || c == '-')){
+            return 0;
+        }
+    }
+    return 1;
+}
