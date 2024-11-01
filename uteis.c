@@ -60,3 +60,12 @@ int valida_senha(char *senha){
     }
     return 1;
 }
+
+int valida_receita(char *receita){
+    int tamanho = strlen(receita);
+
+    if (tamanho > 50){
+        return 0;
+    }
+    return 1;
+}
