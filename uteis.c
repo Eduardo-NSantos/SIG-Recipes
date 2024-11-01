@@ -69,3 +69,12 @@ int valida_receita(char *receita){
     }
     return 1;
 }
+
+int valida_descricao(char *descricao){
+    int tamanho = strlen(descricao);
+
+    if (tamanho > 255){
+        return 0;
+    }
+    return 1;
+}
