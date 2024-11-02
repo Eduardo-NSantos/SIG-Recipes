@@ -87,6 +87,7 @@ int valida_ingredientes(char *ingrediente, int *tam) {
     if (tamanho_s > max || tamanho_v > max) {
         return 0;
     }
+
     return 1;
 }
 
@@ -97,5 +98,26 @@ int valida_materiais(char *material, int *tam) {
     if (tamanho_s > max || tamanho_v > max) {
         return 0;
     }
+
+    return 1;
+}
+
+int valida_tempo(char *tempo) {
+    int tamanho = strlen(tempo);
+
+    if (tamanho != 5) {
+        return 0;
+    }
+
+    if (tempo[2] != ':') {
+        return 0;
+    }
+    
+    for (int i = 0; i < tamanho; i++) {
+        if (i != 2 && !isdigit(tempo[i])) {
+            return 0;
+        }
+    }
+
     return 1;
 }
