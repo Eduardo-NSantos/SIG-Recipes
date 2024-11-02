@@ -136,3 +136,12 @@ int valida_complexidade(char *complex) {
 
     return 1;
 }
+
+int valida_modo(char *modo) {
+    int tamanho = strlen(modo);
+
+    if (tamanho > 255){
+        return 0;
+    }
+    return 1;
+}
