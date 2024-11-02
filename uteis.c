@@ -121,3 +121,18 @@ int valida_tempo(char *tempo) {
 
     return 1;
 }
+
+int valida_complexidade(char *complex) {
+    int tamanho = strlen(complex);
+    int n = *complex - '0';
+
+    if (tamanho != 1 || !isdigit(complex[0])) {
+        return 0;
+    }
+
+    if (n < 1 || n > 5) {
+        return 0;
+    }
+
+    return 1;
+}
