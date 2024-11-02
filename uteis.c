@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
+#define max 30
 
 int valida_email(char *email){
     char c;
@@ -74,6 +75,16 @@ int valida_descricao(char *descricao){
     int tamanho = strlen(descricao);
 
     if (tamanho > 255){
+        return 0;
+    }
+    return 1;
+}
+
+int valida_ingredientes(char *ingrediente, int *tam) {
+    int tamanho_s = strlen(ingrediente);
+    int tamanho_v = *tam;
+
+    if (tamanho_s > max || tamanho_v > max) {
         return 0;
     }
     return 1;
