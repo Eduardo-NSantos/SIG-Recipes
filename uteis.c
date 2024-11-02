@@ -89,3 +89,13 @@ int valida_ingredientes(char *ingrediente, int *tam) {
     }
     return 1;
 }
+
+int valida_materiais(char *material, int *tam) {
+    int tamanho_s = strlen(material);
+    int tamanho_v = *tam;
+
+    if (tamanho_s > max || tamanho_v > max) {
+        return 0;
+    }
+    return 1;
+}
