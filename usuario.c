@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuario.h"
+#include "uteis.h"
 
 
 
@@ -87,7 +88,6 @@ void ver_dados(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//                       ---===       Nome        ===---                      //\n");
-    printf("//                       ---===      Usuário      ===---                      //\n");
     printf("//                       ---===       Email       ===---                      //\n");
     printf("//                  ---===  Número de Receitas: (* *)  ===---                 //\n");
     printf("//                                                                            //\n");
@@ -113,6 +113,10 @@ void ver_dados(void) {
 
 // --== * Altera Dados * ==-- //
 void altera_dados(void) {
+    char nome[52] = "x";
+    char email[52] = "x@x";
+    char senha[26];
+    
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -123,10 +127,32 @@ void altera_dados(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Usuário:                                                      //\n");
-    printf("//         --== Email:                                                        //\n");
-    printf("//         --== Senha:                                                        //\n");
+    do{
+        if(!valida_nome(nome)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Nome: ");
+        scanf("%51[^\n]s", nome);
+        getchar();
+    }while(!valida_nome(nome));
+
+    do{
+        if(!valida_email(email)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Email: ");
+        scanf("%51[^\n]s", email);
+        getchar();
+    }while(!valida_email(email));
+
+    do{
+        if(!valida_senha(senha)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Senha: ");
+        scanf("%25[^\n]s", senha);
+        getchar();
+    }while(!valida_senha(senha));
     printf("//                                                                            //\n");
     printf("//         ---== Informações Adicionais (Opcional):                           //\n");
     printf("//                                                                            //\n");

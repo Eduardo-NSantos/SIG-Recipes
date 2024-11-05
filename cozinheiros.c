@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include "cozinheiros.h"
 #include "receitas.h"
+#include "uteis.h"
 
 
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
@@ -80,6 +81,14 @@ char menu_cozinheiro(void) {
 
 // --== * Cadastra Receita * ==-- //
 void cadastra_receita(void) {
+    char receita[52];
+    char descricao[257];
+    char ingredientes[257];
+    char materiais[257];
+    char tempo[7] = "00:00";
+    char modo[257];
+    char complexidade[3] = "1";
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -90,13 +99,57 @@ void cadastra_receita(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Descrição:                                                    //\n");
-    printf("//         --== Ingredientes:                                                 //\n");
-    printf("//         --== Materiais:                                                    //\n");
-    printf("//         --== Tempo de Preparo:                                             //\n");
-    printf("//         --== Modo de Preparo:                                              //\n");
-    printf("//         --== Complexidade (1-5):                                           //\n");
+    do{
+        if(!valida_receita(receita)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Nome: ");
+        scanf("%51[^\n]s", receita);
+        getchar();
+    }while(!valida_receita(receita));
+
+    do{
+        if(!valida_descricao(descricao)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Descrição: ");
+        scanf("%256[^\n]s", descricao);
+        getchar();
+    }while(!valida_descricao(descricao));
+
+    printf("//         --== Ingredientes: ");
+    scanf("%256[^\n]s", ingredientes);
+    getchar();
+    printf("//         --== Materiais: ");
+    scanf("%256[^\n]s", materiais);
+    getchar();
+
+    do{
+        if(!valida_tempo(tempo)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Tempo de Preparo (hh:mm): ");
+        scanf("%6[^\n]s", tempo);
+        getchar();
+    }while(!valida_tempo(tempo));
+
+    do{
+        if(!valida_modo(modo)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Modo de Preparo: ");
+        scanf("%256[^\n]s", modo);
+        getchar();
+    }while(!valida_modo(modo));
+
+    do{
+        if(!valida_complexidade(complexidade)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Complexidade (1-5): ");
+        scanf("%2[^\n]s", complexidade);
+        getchar();
+    }while(!valida_complexidade(complexidade));
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -109,23 +162,75 @@ void cadastra_receita(void) {
 
 // --== * Altera Receitas  * ==-- //
 void altera_receita(void) {
+    char receita[52];
+    char descricao[257];
+    char ingredientes[257];
+    char materiais[257];
+    char tempo[7] = "00:00";
+    char modo[257];
+    char complexidade[3] = "1";
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                       ---== * Alterar Receita * ==---                      //\n");
+    printf("//                       ---== * alterar Receita * ==---                      //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Descrição:                                                    //\n");
-    printf("//         --== Ingredientes:                                                 //\n");
-    printf("//         --== Materiais:                                                    //\n");
-    printf("//         --== Tempo de Preparo:                                             //\n");
-    printf("//         --== Modo de Preparo:                                              //\n");
-    printf("//         --== Complexidade (1-5):                                           //\n");
+    do{
+        if(!valida_receita(receita)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Nome: ");
+        scanf("%51[^\n]s", receita);
+        getchar();
+    }while(!valida_receita(receita));
+
+    do{
+        if(!valida_descricao(descricao)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Descrição: ");
+        scanf("%256[^\n]s", descricao);
+        getchar();
+    }while(!valida_descricao(descricao));
+
+    printf("//         --== Ingredientes: ");
+    scanf("%256[^\n]s", ingredientes);
+    getchar();
+    printf("//         --== Materiais: ");
+    scanf("%256[^\n]s", materiais);
+    getchar();
+
+    do{
+        if(!valida_tempo(tempo)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Tempo de Preparo (hh:mm): ");
+        scanf("%6[^\n]s", tempo);
+        getchar();
+    }while(!valida_tempo(tempo));
+
+    do{
+        if(!valida_modo(modo)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Modo de Preparo: ");
+        scanf("%256[^\n]s", modo);
+        getchar();
+    }while(!valida_modo(modo));
+
+    do{
+        if(!valida_complexidade(complexidade)){
+            printf("Erro ao cadastrar item, verifique os dados e tente novamente!\n");
+        }
+        printf("//         --== Complexidade (1-5): ");
+        scanf("%2[^\n]s", complexidade);
+        getchar();
+    }while(!valida_complexidade(complexidade));
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
