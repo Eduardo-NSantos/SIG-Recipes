@@ -150,14 +150,6 @@ void cadastra_receita(void) {
         scanf("%2[^\n]s", complexidade);
         getchar();
     }while(!valida_complexidade(complexidade));
-
-    printf("\n%s", receita);
-    printf("\n%s", descricao);
-    printf("\n%s", ingredientes);
-    printf("\n%s", materiais);
-    printf("\n%s", tempo);
-    printf("\n%s", modo);
-    printf("\n%s\n", complexidade);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -239,14 +231,6 @@ void altera_receita(void) {
         scanf("%2[^\n]s", complexidade);
         getchar();
     }while(!valida_complexidade(complexidade));
-
-    printf("\n%s", receita);
-    printf("\n%s", descricao);
-    printf("\n%s", ingredientes);
-    printf("\n%s", materiais);
-    printf("\n%s", tempo);
-    printf("\n%s", modo);
-    printf("\n%s\n", complexidade);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");

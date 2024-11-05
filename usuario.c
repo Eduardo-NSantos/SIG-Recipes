@@ -153,10 +153,6 @@ void altera_dados(void) {
         scanf("%25[^\n]s", senha);
         getchar();
     }while(!valida_senha(senha));
-
-    printf("\n%s", nome);
-    printf("\n%s", email);
-    printf("\n%s\n", senha);
     printf("//                                                                            //\n");
     printf("//         ---== Informações Adicionais (Opcional):                           //\n");
     printf("//                                                                            //\n");
