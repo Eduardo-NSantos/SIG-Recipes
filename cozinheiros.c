@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include "cozinheiros.h"
 #include "receitas.h"
+#include "uteis.h"
 
 
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
@@ -80,6 +81,8 @@ char menu_cozinheiro(void) {
 
 // --== * Cadastra Receita * ==-- //
 void cadastra_receita(void) {
+    char modo[255];
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -95,7 +98,11 @@ void cadastra_receita(void) {
     printf("//         --== Ingredientes:                                                 //\n");
     printf("//         --== Materiais:                                                    //\n");
     printf("//         --== Tempo de Preparo:                                             //\n");
-    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Modo de Preparo * ==---                      //\n");
+    printf("\n");
+    printf("--== ");
+    le_modo(modo);
     printf("//         --== Complexidade (1-5):                                           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -109,6 +116,8 @@ void cadastra_receita(void) {
 
 // --== * Altera Receitas  * ==-- //
 void altera_receita(void) {
+    char modo[255];
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -124,7 +133,11 @@ void altera_receita(void) {
     printf("//         --== Ingredientes:                                                 //\n");
     printf("//         --== Materiais:                                                    //\n");
     printf("//         --== Tempo de Preparo:                                             //\n");
-    printf("//         --== Modo de Preparo:                                              //\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Modo de Preparo * ==---                      //\n");
+    printf("\n");
+    printf("--== ");
+    le_modo(modo);
     printf("//         --== Complexidade (1-5):                                           //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");

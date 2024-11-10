@@ -137,6 +137,16 @@ int valida_complexidade(char *complex) {
     return 1;
 }
 
+void le_modo(char *modo) {
+    scanf("%s", modo);
+    getchar();
+
+    while (!valida_modo(modo)) {
+        printf("Inválido, verifique o texto e tente novamente: ");
+        scanf("%s", modo);
+    }
+}
+
 int valida_modo(char *modo) {
     int tamanho = strlen(modo);
 
