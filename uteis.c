@@ -1,7 +1,13 @@
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
+#include<stdlib.h>
 #define max 30
+
+// Retirado de https://www.quora.com/How-do-I-clear-the-buffer-in-C (11/11/2024)
+void clear(void) {
+    while (getchar() != '\n');
+}
 
 int valida_email(char *email){
     char c;
@@ -122,15 +128,25 @@ int valida_tempo(char *tempo) {
     return 1;
 }
 
+void le_complexidade(char *complex) {
+    scanf("%c", complex);
+    clear();
+    
+    while (!valida_complexidade(complex)) {
+        printf("Valor inválido, digite outro: \n");
+        printf("//         --== ");
+        scanf("%c", complex);
+        clear();
+    }
+}
+
 int valida_complexidade(char *complex) {
     int tamanho = strlen(complex);
     int n = *complex - '0';
 
     if (tamanho != 1 || !isdigit(complex[0])) {
         return 0;
-    }
-
-    if (n < 1 || n > 5) {
+    } else if (n < 1 || n > 5) {
         return 0;
     }
 
@@ -139,11 +155,14 @@ int valida_complexidade(char *complex) {
 
 void le_modo(char *modo) {
     scanf("%s", modo);
-    getchar();
+    clear();
 
     while (!valida_modo(modo)) {
         printf("Inválido, verifique o texto e tente novamente: ");
+        printf("\n");
+        printf("--== ");
         scanf("%s", modo);
+        clear();
     }
 }
 

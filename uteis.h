@@ -6,6 +6,9 @@ int valida_descricao(char*);
 int valida_ingredientes(char*, int*);
 int valida_materiais(char*, int*);
 int valida_tempo(char*);
+
+void le_complexidade(char*);
 int valida_complexidade(char*);
+
 void le_modo(char *);
 int valida_modo(char*);

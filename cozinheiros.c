@@ -82,6 +82,7 @@ char menu_cozinheiro(void) {
 // --== * Cadastra Receita * ==-- //
 void cadastra_receita(void) {
     char modo[255];
+    char complex;
 
     system("clear||cls");
     printf("\n");
@@ -103,7 +104,8 @@ void cadastra_receita(void) {
     printf("\n");
     printf("--== ");
     le_modo(modo);
-    printf("//         --== Complexidade (1-5):                                           //\n");
+    printf("//         --== Complexidade (1-5): ");
+    le_complexidade(&complex);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -117,6 +119,7 @@ void cadastra_receita(void) {
 // --== * Altera Receitas  * ==-- //
 void altera_receita(void) {
     char modo[255];
+    char complex;
 
     system("clear||cls");
     printf("\n");
@@ -138,7 +141,8 @@ void altera_receita(void) {
     printf("\n");
     printf("--== ");
     le_modo(modo);
-    printf("//         --== Complexidade (1-5):                                           //\n");
+    printf("//         --== Complexidade (1-5): ");
+    le_complexidade(&complex);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
