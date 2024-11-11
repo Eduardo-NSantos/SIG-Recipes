@@ -100,7 +100,11 @@ void cadastra_receita(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Descrição:                                                    //\n");
+    printf("//                         ---== * Descricao * ==---                          //\n");
+    printf("\n");
+    printf("--== ");                                                 
+    le_descricao(descricao);
+    printf("//                                                                            //\n"); 
     printf("//         --== Tempo de Preparo (Formato 00:00): ");
     le_tempo(tempo);
     printf("//                                                                            //\n");
@@ -145,7 +149,11 @@ void altera_receita(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Descrição:                                                    //\n");
+    printf("//                         ---== * Descricao * ==---                          //\n");
+    printf("\n");
+    printf("--== ");                                             
+    le_descricao(descricao);
+    printf("//                                                                            //\n"); 
     printf("//         --== Tempo de Preparo: ");
     le_tempo(tempo);
     printf("//         --== Ingredientes:                                                 //\n");

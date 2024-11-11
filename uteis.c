@@ -77,6 +77,19 @@ int valida_receita(char *receita){
     return 1;
 }
 
+void le_descricao(char *descricao) {
+    scanf("%s", descricao);
+    clear();
+
+    while (!valida_descricao(descricao)) {
+        printf("Inválido, verifique o texto e tente novamente: ");
+        printf("\n");
+        printf("--== ");
+        scanf("%s", descricao);
+        clear();
+    }
+}
+
 int valida_descricao(char *descricao){
     int tamanho = strlen(descricao);
 
