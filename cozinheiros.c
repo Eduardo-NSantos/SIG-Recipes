@@ -81,6 +81,11 @@ char menu_cozinheiro(void) {
 
 // --== * Cadastra Receita * ==-- //
 void cadastra_receita(void) {
+    char receita[52];
+    char descricao[257];
+    char ingredientes[257];
+    char materiais[257];
+    char tempo[7] = "00:00";
     char modo[255];
     char complex;
 
@@ -118,6 +123,11 @@ void cadastra_receita(void) {
 
 // --== * Altera Receitas  * ==-- //
 void altera_receita(void) {
+    char receita[52];
+    char descricao[257];
+    char ingredientes[257];
+    char materiais[257];
+    char tempo[7] = "00:00";
     char modo[255];
     char complex;
 
