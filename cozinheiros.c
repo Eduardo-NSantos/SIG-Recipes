@@ -99,7 +99,9 @@ void cadastra_receita(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Nome: ");
+    le_receita(receita);
+    printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
     printf("\n");
     printf("--== ");                                                 
@@ -148,7 +150,9 @@ void altera_receita(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
+    printf("//         --== Nome: ");
+    le_receita(receita);
+    printf("//                                                                            //\n"); 
     printf("//                         ---== * Descricao * ==---                          //\n");
     printf("\n");
     printf("--== ");                                             

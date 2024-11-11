@@ -68,6 +68,19 @@ int valida_senha(char *senha){
     return 1;
 }
 
+void le_receita(char *receita) {
+    scanf("%s", receita);
+    clear();
+
+    while (!valida_receita(receita)) {
+        printf("Inválido, verifique o texto e tente novamente: ");
+        printf("\n");
+        printf("--== ");
+        scanf("%s", receita);
+        clear();
+    }
+}
+
 int valida_receita(char *receita){
     int tamanho = strlen(receita);
 
