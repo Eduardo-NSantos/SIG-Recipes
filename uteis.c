@@ -108,6 +108,18 @@ int valida_materiais(char *material, int *tam) {
     return 1;
 }
 
+void le_tempo(char *tempo) {
+    scanf("%s", tempo);
+    clear();
+
+    while (!valida_tempo(tempo)) {
+        printf("Valor inválido, digite outro (Formato 00:00): \n");
+        printf("//         --== ");
+        scanf("%s", tempo);
+        clear();
+    }
+}
+
 int valida_tempo(char *tempo) {
     int tamanho = strlen(tempo);
 
