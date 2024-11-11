@@ -129,13 +129,13 @@ int valida_tempo(char *tempo) {
 }
 
 void le_complexidade(char *complex) {
-    scanf("%c", complex);
+    scanf("%s", complex);
     clear();
     
     while (!valida_complexidade(complex)) {
         printf("Valor inválido, digite outro: \n");
         printf("//         --== ");
-        scanf("%c", complex);
+        scanf("%s", complex);
         clear();
     }
 }
@@ -144,7 +144,7 @@ int valida_complexidade(char *complex) {
     int tamanho = strlen(complex);
     int n = *complex - '0';
 
-    if (tamanho != 1 || !isdigit(complex[0])) {
+    if (tamanho != 1 || !isdigit(*complex)) {
         return 0;
     } else if (n < 1 || n > 5) {
         return 0;

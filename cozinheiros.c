@@ -87,7 +87,7 @@ void cadastra_receita(void) {
     char materiais[257];
     char tempo[7] = "00:00";
     char modo[255];
-    char complex;
+    char complex[3];
 
     system("clear||cls");
     printf("\n");
@@ -129,7 +129,7 @@ void altera_receita(void) {
     char materiais[257];
     char tempo[7] = "00:00";
     char modo[255];
-    char complex;
+    char complex[3];
 
     system("clear||cls");
     printf("\n");
