@@ -113,9 +113,9 @@ void ver_dados(void) {
 
 // --== * Altera Dados * ==-- //
 void altera_dados(void) {
-    char nome[52] = "x";
-    char email[52] = "x@x";
-    char senha[26];
+    char* nome;
+    char* email;
+    char* senha;
     
     system("clear||cls");
     printf("\n");
@@ -128,11 +128,23 @@ void altera_dados(void) {
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//         --== Nome: ");
-    le_nome(nome);
+    nome = input();
+    while (!valida_nome(nome)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        nome = input();
+    }
     printf("//         --== Email: ");
-    le_email(email);
+    email = input();
+    while (!valida_email(email)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        email = input();
+    }
     printf("//         --== Senha: ");
-    le_senha(senha);
+    senha = input();
+    while (!valida_senha(senha)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        senha = input();
+    }
     printf("//                                                                            //\n");
     printf("//         ---== Informações Adicionais (Opcional):                           //\n");
     printf("//                                                                            //\n");
@@ -141,6 +153,10 @@ void altera_dados(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    free(nome);
+    free(email);
+    free(senha);
 }
 
 

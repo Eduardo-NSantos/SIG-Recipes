@@ -5,8 +5,27 @@
 #define max 30
 
 // Retirado de https://www.quora.com/How-do-I-clear-the-buffer-in-C (11/11/2024)
-void clear(void) {
+void clear(void) { // Limpa Buffer
     while (getchar() != '\n');
+}
+
+char* input(void) {
+    char linha[256];
+    char* variavel;
+
+    fgets(linha, 255, stdin);
+    int tamanho = strlen(linha);
+
+    // Trecho adaptado do ChatGPT para remover o \n do final da String
+    if (linha[tamanho - 1] == '\n') {
+        linha[tamanho - 1] = '\0';
+        tamanho--;
+    }
+
+    variavel = (char*) malloc(tamanho+1);
+    strcpy(variavel, linha);
+
+    return variavel;
 }
 
 int valida_email(char *email){
@@ -36,19 +55,6 @@ int valida_email(char *email){
     return 1;
 }
 
-void le_email(char *email) {
-    scanf("%s", email);
-    clear();
-
-    while (!valida_email(email)) {
-        printf("Valor inválido, tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", email);
-        clear();
-    }
-}
-
 int valida_nome(char *nome){
     char c;
     char tamanho = strlen(nome);
@@ -63,19 +69,6 @@ int valida_nome(char *nome){
         }
     }
     return 1;
-}
-
-void le_nome(char *nome) {
-    scanf("%s", nome);
-    clear();
-
-    while (!valida_nome(nome)) {
-        printf("Valor inválido, tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", nome);
-        clear();
-    }
 }
 
 int valida_senha(char *senha){
@@ -94,19 +87,6 @@ int valida_senha(char *senha){
     return 1;
 }
 
-void le_senha(char *senha) {
-    scanf("%s", senha);
-    clear();
-
-    while (!valida_senha(senha)) {
-        printf("Valor inválido, tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", senha);
-        clear();
-    }
-}
-
 int valida_receita(char *receita){
     int tamanho = strlen(receita);
 
@@ -116,19 +96,6 @@ int valida_receita(char *receita){
     return 1;
 }
 
-void le_receita(char *receita) {
-    scanf("%s", receita);
-    clear();
-
-    while (!valida_receita(receita)) {
-        printf("Inválido, verifique o texto e tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", receita);
-        clear();
-    }
-}
-
 int valida_descricao(char *descricao){
     int tamanho = strlen(descricao);
 
@@ -136,19 +103,6 @@ int valida_descricao(char *descricao){
         return 0;
     }
     return 1;
-}
-
-void le_descricao(char *descricao) {
-    scanf("%s", descricao);
-    clear();
-
-    while (!valida_descricao(descricao)) {
-        printf("Inválido, verifique o texto e tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", descricao);
-        clear();
-    }
 }
 
 int valida_ingredientes(char *ingrediente, int *tam) {
@@ -193,18 +147,6 @@ int valida_tempo(char *tempo) {
     return 1;
 }
 
-void le_tempo(char *tempo) {
-    scanf("%s", tempo);
-    clear();
-
-    while (!valida_tempo(tempo)) {
-        printf("Valor inválido, digite outro (Formato 00:00): \n");
-        printf("//         --== ");
-        scanf("%s", tempo);
-        clear();
-    }
-}
-
 int valida_complexidade(char *complex) {
     int tamanho = strlen(complex);
     int n = *complex - '0';
@@ -218,18 +160,6 @@ int valida_complexidade(char *complex) {
     return 1;
 }
 
-void le_complexidade(char *complex) {
-    scanf("%s", complex);
-    clear();
-    
-    while (!valida_complexidade(complex)) {
-        printf("Valor inválido, digite outro: \n");
-        printf("//         --== ");
-        scanf("%s", complex);
-        clear();
-    }
-}
-
 int valida_modo(char *modo) {
     int tamanho = strlen(modo);
 
@@ -237,17 +167,4 @@ int valida_modo(char *modo) {
         return 0;
     }
     return 1;
-}
-
-void le_modo(char *modo) {
-    scanf("%s", modo);
-    clear();
-
-    while (!valida_modo(modo)) {
-        printf("Inválido, verifique o texto e tente novamente: ");
-        printf("\n");
-        printf("--== ");
-        scanf("%s", modo);
-        clear();
-    }
 }
