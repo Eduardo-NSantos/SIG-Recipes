@@ -118,15 +118,17 @@ void valida_ingredientes(char** array_ingredientes, int tamanho){
     }
 }
 
-int valida_materiais(char *material, int *tam) {
-    int tamanho_s = strlen(material);
-    int tamanho_v = *tam;
+int valida_materiais(char** array_materiais, int tamanho){
+    char* material;
+    int tamanho_palavra;
 
-    if (tamanho_s > max || tamanho_v > max) {
-        return 0;
+    for(int i = 0; i < tamanho; i++){
+        printf("%d: ", i + 1);
+        material = input();
+        tamanho_palavra = strlen(material);
+        array_materiais[i] = (char*) malloc(tamanho_palavra * sizeof(char*));
+        strcpy(array_materiais[i], material);
     }
-
-    return 1;
 }
 
 int valida_tempo(char *tempo) {
