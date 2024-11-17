@@ -118,7 +118,7 @@ void valida_ingredientes(char** array_ingredientes, int tamanho){
     }
 }
 
-int valida_materiais(char** array_materiais, int tamanho){
+void valida_materiais(char** array_materiais, int tamanho){
     char* material;
     int tamanho_palavra;
 
