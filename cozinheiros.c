@@ -134,7 +134,7 @@ void cadastra_receita(void) {
     getchar();
     materiais = (char**) malloc(quantidade_materiais * sizeof(char*));
     valida_materiais(materiais, quantidade_materiais);
-    
+
     printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
     printf("\n");
@@ -181,12 +181,15 @@ void cadastra_receita(void) {
 void altera_receita(void) {
     char* receita;
     char* descricao;
-    //char* ingredientes;
-    //char* materiais;
+    char** ingredientes;
+    char** materiais;
     char* tempo;
     char* modo;
     char* complex;
 
+    int quantidade_ingredientes;
+    int quantidade_materiais;
+    
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -218,8 +221,18 @@ void altera_receita(void) {
         tempo = input();
     }
     printf("//                                                                            //\n"); 
-    printf("//         --== Ingredientes:                                                 //\n");
-    printf("//         --== Materiais:                                                    //\n");
+    printf("//         --== Informe a quantidade de ingredientes: ");
+    scanf("%d", &quantidade_ingredientes);
+    getchar();
+    ingredientes = (char**) malloc(quantidade_ingredientes * sizeof(char*));
+    valida_ingredientes(ingredientes, quantidade_ingredientes);
+
+    printf("//         --== Informe a quantidade de materiais: ");
+    scanf("%d", &quantidade_materiais);
+    getchar();
+    materiais = (char**) malloc(quantidade_materiais * sizeof(char*));
+    valida_materiais(materiais, quantidade_materiais);
+
     printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
     printf("\n");
@@ -250,6 +263,14 @@ void altera_receita(void) {
     free(tempo);
     free(descricao);
     free(modo);
+    for(int i = 0; i < quantidade_ingredientes; i++){
+        free(ingredientes[i]);
+    }
+    free(ingredientes);
+    for(int i = 0; i < quantidade_materiais; i++){
+        free(materiais[i]);
+    }
+    free(materiais);
 }
 
 
