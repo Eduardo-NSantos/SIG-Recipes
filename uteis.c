@@ -115,6 +115,20 @@ int valida_descricao(char *descricao){
     return 1;
 }
 
+int valida_tamanho(char *tamanho) {
+    int int_tam = atoi(tamanho);
+
+    if (!ehDigito(tamanho)) {
+        return 0;
+    }
+
+    if (int_tam <= 0 || int_tam > 30) {
+        return 0;
+    }
+
+    return 1;
+}
+
 void valida_ingredientes(char** array_ingredientes, int tamanho){
     char* ingrediente;
     int tamanho_palavra;
