@@ -1,9 +1,11 @@
 char* input(void);
+int ehDigito(char*);
 int valida_email(char*);
 int valida_nome(char*);
 int valida_senha(char*);
 int valida_receita(char*);
 int valida_descricao(char*);
+int valida_tamanho(char*);
 void valida_ingredientes(char**, int);
 void valida_materiais(char**, int);
 int valida_tempo(char*);

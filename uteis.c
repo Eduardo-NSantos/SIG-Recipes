@@ -179,7 +179,7 @@ int valida_complexidade(char *complex) {
     int tamanho = strlen(complex);
     int n = *complex - '0';
 
-    if (tamanho != 1 || !isdigit(*complex)) {
+    if (tamanho != 1 || !ehDigito(complex)) {
         return 0;
     } else if (n < 1 || n > 5) {
         return 0;
