@@ -28,6 +28,16 @@ char* input(void) {
     return variavel;
 }
 
+int ehDigito(char* variavel) {
+    for (int i = 0; i < strlen(variavel); i++) {
+        if (variavel[i] < '0' || variavel[i] > '9') {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
 int valida_email(char *email){
     char c;
     int tamanho = strlen(email);
