@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "usuario.h"
 #include "uteis.h"
 
@@ -116,6 +117,7 @@ void altera_dados(void) {
     char* nome;
     char* email;
     char* senha;
+    struct usuario dados;
     
     system("clear||cls");
     printf("\n");
@@ -153,6 +155,10 @@ void altera_dados(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    strcpy(dados.nome, nome);
+    strcpy(dados.email, email);
+    strcpy(dados.senha, senha);
 
     free(nome);
     free(email);

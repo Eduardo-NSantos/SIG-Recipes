@@ -18,3 +18,9 @@ char menu_usuario(void);
 void ver_dados(void);
 void altera_dados(void);
 void deleta_conta(void);
+
+struct usuario{
+    char nome[55];
+    char email[55];
+    char senha[26];
+};
