@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "cozinheiros.h"
 #include "receitas.h"
 #include "uteis.h"
@@ -93,6 +94,8 @@ void cadastra_receita(void) {
     char* quantidade_materiais;
 
     int quantidade = 0;
+
+    struct cozinheiro dados;
 
     system("clear||cls");
     printf("\n");
@@ -174,6 +177,14 @@ void cadastra_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
+    strcpy(dados.receita, receita);
+    strcpy(dados.descricao, descricao);
+    //strcpy(dados.ingredientes, ingredientes);
+    //strcpy(dados.materiais, materiais);
+    strcpy(dados.tempo, tempo);
+    strcpy(dados.modo, modo);
+    strcpy(dados.complex, complex);
+
     free(receita);
     free(complex);
     free(tempo);
@@ -209,6 +220,8 @@ void altera_receita(void) {
     char* quantidade_materiais;
 
     int quantidade = 0;
+
+    struct cozinheiro dados;
     
     system("clear||cls");
     printf("\n");
@@ -289,6 +302,14 @@ void altera_receita(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    strcpy(dados.receita, receita);
+    strcpy(dados.descricao, descricao);
+    //strcpy(dados.ingredientes, ingredientes);
+    //strcpy(dados.materiais, materiais);
+    strcpy(dados.tempo, tempo);
+    strcpy(dados.modo, modo);
+    strcpy(dados.complex, complex);
 
     free(receita);
     free(complex);
