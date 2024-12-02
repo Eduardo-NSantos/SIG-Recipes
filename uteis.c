@@ -2,6 +2,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
+#include "cozinheiros.h"
 #define max 30
 
 // Retirado de https://www.quora.com/How-do-I-clear-the-buffer-in-C (11/11/2024)
@@ -132,26 +133,26 @@ int valida_tamanho(char *tamanho) {
 void valida_ingredientes(char** array_ingredientes, int tamanho){
     char* ingrediente;
     int tamanho_palavra;
+    struct cozinheiro dados;
 
     for(int i = 0; i < tamanho; i++){
         printf("%d: ", i + 1);
         ingrediente = input();
         tamanho_palavra = strlen(ingrediente) + 1;
-        array_ingredientes[i] = (char*) malloc(tamanho_palavra * sizeof(char));
-        strcpy(array_ingredientes[i], ingrediente);
+        strcpy(dados.ingredientes[i], ingrediente);
     }
 }
 
 void valida_materiais(char** array_materiais, int tamanho){
     char* material;
     int tamanho_palavra;
+    struct cozinheiro dados;
 
     for(int i = 0; i < tamanho; i++){
         printf("%d: ", i + 1);
         material = input();
         tamanho_palavra = strlen(material);
-        array_materiais[i] = (char*) malloc(tamanho_palavra * sizeof(char*));
-        strcpy(array_materiais[i], material);
+        strcpy(dados.materiais[i], material);
     }
 }
 

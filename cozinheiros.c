@@ -179,8 +179,6 @@ void cadastra_receita(void) {
 
     strcpy(dados.receita, receita);
     strcpy(dados.descricao, descricao);
-    //strcpy(dados.ingredientes, ingredientes);
-    //strcpy(dados.materiais, materiais);
     strcpy(dados.tempo, tempo);
     strcpy(dados.modo, modo);
     strcpy(dados.complex, complex);
