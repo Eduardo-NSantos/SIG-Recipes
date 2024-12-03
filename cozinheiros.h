@@ -13,13 +13,7 @@
 
 
 // --== * Assinaturas * ==-- //
-void modulo_cozinheiro(void);
-char menu_cozinheiro(void);
-void cadastra_receita(void);
-void altera_receita(void);
-void deleta_receita(void);
-
-struct cozinheiro {
+struct receita {
     char receita[52];
     char descricao[257];
     char ingredientes[30][30];
@@ -28,3 +22,11 @@ struct cozinheiro {
     char modo[256];
     char complex[3];
 };
+
+void modulo_cozinheiro(void);
+char menu_cozinheiro(void);
+void cadastra_receita(void);
+void altera_receita(void);
+void deleta_receita(void);
+
+

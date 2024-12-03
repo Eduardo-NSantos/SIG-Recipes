@@ -5,6 +5,8 @@
 #include "cozinheiros.h"
 #define max 30
 
+typedef struct receita Rec;
+
 // Retirado de https://www.quora.com/How-do-I-clear-the-buffer-in-C (11/11/2024)
 void clear(void) { // Limpa Buffer
     while (getchar() != '\n');
@@ -130,29 +132,31 @@ int valida_tamanho(char *tamanho) {
     return 1;
 }
 
-void valida_ingredientes(char** array_ingredientes, int tamanho){
+void valida_ingredientes(char** array_ingredientes, int tamanho, Rec* dados){
     char* ingrediente;
     int tamanho_palavra;
-    struct cozinheiro dados;
 
     for(int i = 0; i < tamanho; i++){
         printf("%d: ", i + 1);
         ingrediente = input();
         tamanho_palavra = strlen(ingrediente) + 1;
-        strcpy(dados.ingredientes[i], ingrediente);
+        array_ingredientes[i] = (char*) malloc(tamanho_palavra * sizeof(char));
+        strcpy(array_ingredientes[i], ingrediente);
+        strcpy(dados->ingredientes[i], array_ingredientes[i]);
     }
 }
 
-void valida_materiais(char** array_materiais, int tamanho){
+void valida_materiais(char** array_materiais, int tamanho, Rec* dados){
     char* material;
     int tamanho_palavra;
-    struct cozinheiro dados;
 
     for(int i = 0; i < tamanho; i++){
         printf("%d: ", i + 1);
         material = input();
         tamanho_palavra = strlen(material);
-        strcpy(dados.materiais[i], material);
+        array_materiais[i] = (char*) malloc(tamanho_palavra * sizeof(char*));
+        strcpy(array_materiais[i], material);
+        strcpy(dados->materiais[i], array_materiais[i]);
     }
 }
 
@@ -196,4 +200,13 @@ int valida_modo(char *modo) {
         return 0;
     }
     return 1;
+}
+
+void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, char* complex, Rec* dados) {
+
+    strcpy(dados->receita, receita);
+    strcpy(dados->descricao, descricao);
+    strcpy(dados->tempo, tempo);
+    strcpy(dados->modo, modo);
+    strcpy(dados->complex, complex);
 }
