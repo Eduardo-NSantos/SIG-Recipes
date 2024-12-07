@@ -114,6 +114,12 @@ void ver_dados(void) {
 
 // --== * Tela de Cadastro * ==-- //
 void cadastro(void) {
+    char* nome;
+    char* email;
+    char* senha;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -124,16 +130,39 @@ void cadastro(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome:                                                         //\n");
-    printf("//         --== Usuário:                                                      //\n");
-    printf("//         --== Email:                                                        //\n");
-    printf("//         --== Senha:                                                        //\n");
+    printf("//         --== Nome: ");
+    nome = input();
+    while (!valida_nome(nome)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        nome = input();
+    }
+    printf("//         --== Email: ");
+    email = input();
+    while (!valida_email(email)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        email = input();
+    }
+    printf("//         --== Senha: ");
+    senha = input();
+    while (!valida_senha(senha)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        senha = input();
+    }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
+
+    free(nome);
+    free(email);
+    free(senha);
+    free(usuario);
 }
 
 
@@ -215,6 +244,7 @@ void altera_dados(void) {
     free(nome);
     free(email);
     free(senha);
+    free(usuario);
 }
 
 
