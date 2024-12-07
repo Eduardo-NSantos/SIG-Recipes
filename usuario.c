@@ -117,7 +117,8 @@ void altera_dados(void) {
     char* nome;
     char* email;
     char* senha;
-    struct usuario dados;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));  
     
     system("clear||cls");
     printf("\n");
@@ -156,9 +157,9 @@ void altera_dados(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    strcpy(dados.nome, nome);
-    strcpy(dados.email, email);
-    strcpy(dados.senha, senha);
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
 
     free(nome);
     free(email);
