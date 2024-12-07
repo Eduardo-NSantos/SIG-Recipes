@@ -168,7 +168,10 @@ void cadastro(void) {
 
 
 // --== * Tela de Autenticação * ==-- //
-void autenticacao(void) {
+void autenticacao(void) {    
+    char* email;
+    char* senha;
+    
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -179,14 +182,27 @@ void autenticacao(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --= Usuário/Email:                                                 //\n");
-    printf("//         --= Senha:                                                         //\n");
+    printf("//         --== Email: ");
+    email = input();
+    while (!valida_email(email)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        email = input();
+    }
+    printf("//         --== Senha: ");
+    senha = input();
+    while (!valida_senha(senha)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        senha = input();
+    }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    free(email);
+    free(senha);
 }
 
 
