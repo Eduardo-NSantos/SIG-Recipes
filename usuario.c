@@ -167,6 +167,32 @@ void cadastro(void) {
 
 
 
+// --== * Gravação de dados * ==-- //
+int gravacao_usuario(char* arquivo, Usuario* usuario){
+    FILE* file;
+
+    if((file = fopen(arquivo, "rt")) != NULL){
+        fclose(file);
+        file = fopen(arquivo, "at");
+    }else{
+        file = fopen(arquivo, "wt");
+    }
+    
+    if(file == NULL){
+        return 0;
+    }
+
+    fprintf(file, "%s\n", usuario->nome);
+    fprintf(file, "%s\n", usuario->email);
+    fprintf(file, "%s\n", usuario->senha);
+
+    fclose(file);
+
+    return 1;
+}
+
+
+
 // --== * Tela de Autenticação * ==-- //
 void autenticacao(void) {    
     char* email;
