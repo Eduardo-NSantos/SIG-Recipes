@@ -112,6 +112,32 @@ void ver_dados(void) {
 
 
 
+// --== * Gravação de dados * ==-- //
+int gravacao_usuario(char* arquivo, Usuario* usuario){
+    FILE* file;
+
+    if((file = fopen(arquivo, "rt")) != NULL){
+        fclose(file);
+        file = fopen(arquivo, "at");
+    }else{
+        file = fopen(arquivo, "wt");
+    }
+    
+    if(file == NULL){
+        return 0;
+    }
+
+    fprintf(file, "%s\n", usuario->nome);
+    fprintf(file, "%s\n", usuario->email);
+    fprintf(file, "%s\n", usuario->senha);
+
+    fclose(file);
+
+    return 1;
+}
+
+
+
 // --== * Tela de Cadastro * ==-- //
 void cadastro(void) {
     char* nome;
@@ -149,46 +175,25 @@ void cadastro(void) {
         senha = input();
     }
     printf("//                                                                            //\n");
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
+    if(gravacao_usuario("usuarios.txt", usuario)){
+        printf("//         --== Usuário cadastrado com sucesso                                //\n");
+    }else{
+        printf("//         --== Erro ao realizar o cadastro                                   //\n");
+    }
+    printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    strcpy(usuario->nome, nome);
-    strcpy(usuario->email, email);
-    strcpy(usuario->senha, senha);
-
     free(nome);
     free(email);
     free(senha);
     free(usuario);
-}
-
-
-
-// --== * Gravação de dados * ==-- //
-int gravacao_usuario(char* arquivo, Usuario* usuario){
-    FILE* file;
-
-    if((file = fopen(arquivo, "rt")) != NULL){
-        fclose(file);
-        file = fopen(arquivo, "at");
-    }else{
-        file = fopen(arquivo, "wt");
-    }
-    
-    if(file == NULL){
-        return 0;
-    }
-
-    fprintf(file, "%s\n", usuario->nome);
-    fprintf(file, "%s\n", usuario->email);
-    fprintf(file, "%s\n", usuario->senha);
-
-    fclose(file);
-
-    return 1;
 }
 
 
