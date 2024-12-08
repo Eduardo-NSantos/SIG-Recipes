@@ -112,12 +112,140 @@ void ver_dados(void) {
 
 
 
+// --== * Gravação de dados * ==-- //
+int gravacao_usuario(char* arquivo, Usuario* usuario){
+    FILE* file;
+
+    if((file = fopen(arquivo, "rt")) != NULL){
+        fclose(file);
+        file = fopen(arquivo, "at");
+    }else{
+        file = fopen(arquivo, "wt");
+    }
+    
+    if(file == NULL){
+        return 0;
+    }
+
+    fprintf(file, "%s\n", usuario->nome);
+    fprintf(file, "%s\n", usuario->email);
+    fprintf(file, "%s\n", usuario->senha);
+
+    fclose(file);
+
+    return 1;
+}
+
+
+
+// --== * Tela de Cadastro * ==-- //
+void cadastro(void) {
+    char* nome;
+    char* email;
+    char* senha;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));
+
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                        ---== * Cadastrar-se * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome: ");
+    nome = input();
+    while (!valida_nome(nome)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        nome = input();
+    }
+    printf("//         --== Email: ");
+    email = input();
+    while (!valida_email(email)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        email = input();
+    }
+    printf("//         --== Senha: ");
+    senha = input();
+    while (!valida_senha(senha)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        senha = input();
+    }
+    printf("//                                                                            //\n");
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
+    if(gravacao_usuario("usuarios.txt", usuario)){
+        printf("//         --== Usuário cadastrado com sucesso                                //\n");
+    }else{
+        printf("//         --== Erro ao realizar o cadastro                                   //\n");
+    }
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    free(nome);
+    free(email);
+    free(senha);
+    free(usuario);
+}
+
+
+
+// --== * Tela de Autenticação * ==-- //
+void autenticacao(void) {    
+    char* email;
+    char* senha;
+    
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                        ---== * Autenticação * ==---                        //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Email: ");
+    email = input();
+    while (!valida_email(email)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        email = input();
+    }
+    printf("//         --== Senha: ");
+    senha = input();
+    while (!valida_senha(senha)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        senha = input();
+    }
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    free(email);
+    free(senha);
+}
+
+
+
+
 // --== * Altera Dados * ==-- //
 void altera_dados(void) {
     char* nome;
     char* email;
     char* senha;
-    struct usuario dados;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));  
     
     system("clear||cls");
     printf("\n");
@@ -156,13 +284,14 @@ void altera_dados(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    strcpy(dados.nome, nome);
-    strcpy(dados.email, email);
-    strcpy(dados.senha, senha);
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
 
     free(nome);
     free(email);
     free(senha);
+    free(usuario);
 }
 
 
