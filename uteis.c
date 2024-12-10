@@ -210,3 +210,17 @@ void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, ch
     strcpy(dados->modo, modo);
     strcpy(dados->complex, complex);
 }
+
+int gravacao_receita(char* arquivo, Rec* receita){
+    FILE* file;
+    
+    file = fopen(arquivo, "ab");
+    if(file == NULL) {
+        return 0;
+    }
+    
+    fwrite(receita, sizeof(Rec), 1, file);
+    fclose(file);
+
+    return 1;
+}

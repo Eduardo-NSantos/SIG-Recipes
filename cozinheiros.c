@@ -97,8 +97,8 @@ void cadastra_receita(void) {
 
     int quantidade = 0;
 
-    Rec* dados;
-    dados = (Rec*) malloc(sizeof(Rec));
+    Rec* rec;
+    rec = (Rec*) malloc(sizeof(Rec));
 
     system("clear||cls");
     printf("\n");
@@ -142,7 +142,7 @@ void cadastra_receita(void) {
     }
     quantidade = atoi(quantidade_ingredientes);
     ingredientes = (char**) malloc(quantidade * sizeof(char*));
-    valida_ingredientes(ingredientes, quantidade, dados);
+    valida_ingredientes(ingredientes, quantidade, rec);
 
     printf("//         --== Informe a quantidade de materiais: ");
     quantidade_materiais = input();
@@ -152,7 +152,7 @@ void cadastra_receita(void) {
     }
     quantidade = atoi(quantidade_materiais);
     materiais = (char**) malloc(quantidade * sizeof(char*));
-    valida_materiais(materiais, quantidade, dados);
+    valida_materiais(materiais, quantidade, rec);
 
     printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
@@ -180,7 +180,8 @@ void cadastra_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(receita, descricao, tempo, modo, complex, dados);
+    preencheReceita(receita, descricao, tempo, modo, complex, rec);
+    gravacao_receita("receitas.dat", rec);
 
     free(receita);
     free(complex);
@@ -199,6 +200,7 @@ void cadastra_receita(void) {
     free(materiais);
     free(quantidade_ingredientes);
     free(quantidade_materiais);
+    free(rec);
 }
 
 

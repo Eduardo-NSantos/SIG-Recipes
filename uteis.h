@@ -14,3 +14,4 @@ void valida_materiais(char**, int, Rec* dados);
 int valida_tempo(char*);
 int valida_complexidade(char*);
 int valida_modo(char*);
+int gravacao_receita(char*, Rec* receita);

@@ -13,6 +13,7 @@
 
 
 // --== * Assinaturas * ==-- //
+typedef struct receita Rec;
 struct receita {
     char receita[52];
     char descricao[257];
