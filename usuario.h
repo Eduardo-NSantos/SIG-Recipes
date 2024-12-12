@@ -15,9 +15,11 @@
 // --== * Assinaturas * ==-- //
 typedef struct usuario Usuario;
 struct usuario{
+    int id;
     char nome[55];
     char email[55];
     char senha[26];
+    char status;
 };
 
 void modulo_usuario(void);

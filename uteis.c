@@ -3,9 +3,8 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include "cozinheiros.h"
+#include "usuario.h"
 #define max 30
-
-typedef struct receita Rec;
 
 // Retirado de https://www.quora.com/How-do-I-clear-the-buffer-in-C (11/11/2024)
 void clear(void) { // Limpa Buffer
@@ -203,23 +202,51 @@ int valida_modo(char *modo) {
 }
 
 void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, char* complex, Rec* dados) {
-
     strcpy(dados->receita, receita);
     strcpy(dados->descricao, descricao);
     strcpy(dados->tempo, tempo);
     strcpy(dados->modo, modo);
     strcpy(dados->complex, complex);
+    dados->status = '1';
 }
 
 int gravacao_receita(char* arquivo, Rec* receita){
     FILE* file;
+    int contador = 0;
     
     file = fopen(arquivo, "ab");
     if(file == NULL) {
         return 0;
     }
+
+    while (fread(receita, sizeof(Rec), 1, file)) {
+        contador += 1;
+    }
+
+    receita->id = contador;
     
     fwrite(receita, sizeof(Rec), 1, file);
+    fclose(file);
+
+    return 1;
+}
+
+int gravacao_usuario(char* arquivo, Usuario* usuario){
+    FILE* file;
+    int contador = 0;
+
+    file = fopen(arquivo, "ab");
+    if(file == NULL) {
+        return 0;
+    }
+
+    while (fread(usuario, sizeof(Usuario), 1, file)) {
+        contador += 1;
+    }
+
+    usuario->id = contador;
+
+    fwrite(usuario, sizeof(Usuario), 1, file);
     fclose(file);
 
     return 1;

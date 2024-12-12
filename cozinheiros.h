@@ -15,6 +15,7 @@
 // --== * Assinaturas * ==-- //
 typedef struct receita Rec;
 struct receita {
+    int id;
     char receita[52];
     char descricao[257];
     char ingredientes[30][30];
@@ -22,6 +23,7 @@ struct receita {
     char tempo[7];
     char modo[256];
     char complex[3];
+    char status;
 };
 
 void modulo_cozinheiro(void);

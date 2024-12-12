@@ -1,4 +1,5 @@
 typedef struct receita Rec;
+typedef struct usuario Usuario;
 
 char* input(void);
 int ehDigito(char*);
@@ -15,3 +16,4 @@ int valida_tempo(char*);
 int valida_complexidade(char*);
 int valida_modo(char*);
 int gravacao_receita(char*, Rec* receita);
+int gravacao_usuario(char*, Usuario* usuario);
