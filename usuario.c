@@ -195,12 +195,18 @@ void autenticacao(void) {
         printf("//         --== Dado inválido, digite novamente: ");
         email = input();
     }
+
     printf("//         --== Senha: ");
     senha = input();
     while (!valida_senha(senha)) {
         printf("//         --== Dado inválido, digite novamente: ");
         senha = input();
     }
+
+    // while (!autentica(email, senha)) {
+    //     printf("                       -------======= *  * =======-------                       \n");
+    //     printf("                          ---== Dados Inválidos ==---                           \n");
+    // }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");

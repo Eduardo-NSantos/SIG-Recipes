@@ -22,7 +22,7 @@
 
 
 // --== * Assinaturas * ==-- //
-void menu_inicio(void);
+char menu_inicio(void);
 char menu_principal(void);
 
 void autenticacao(void);
@@ -44,31 +44,41 @@ void cadastro(void);
 // --== * Função Principal * ==-- //
 int main(void) {
     char opcao;
+    char opcao_principal;
     
-    menu_inicio();
-    cadastro();
-    autenticacao();
-
     do {
-        opcao = menu_principal();
+        opcao = menu_inicio();
         switch (opcao) {
             case '1':
-                modulo_cozinheiro();
+                autenticacao();
+                do {
+                    opcao_principal = menu_principal();
+                    switch (opcao_principal) {
+                        case '1':
+                            modulo_cozinheiro();
+                            break;
+                        case '2':
+                            modulo_usuario();
+                            break;
+                        case '3':
+                            modulo_receitas();
+                            break;
+                        case '4':
+                            modulo_relatorio();
+                            break;
+                        case '5':
+                            modulo_informacoes();
+                            break;
+                        }    
+                } while (opcao_principal != '0');
                 break;
             case '2':
-                modulo_usuario();
+                cadastro();
                 break;
-            case '3':
-                modulo_receitas();
-                break;
-            case '4':
-                modulo_relatorio();
-                break;
-            case '5':
-                modulo_informacoes();
-                break;
-        }    
+        }
     } while (opcao != '0');
+
+    
 
     return 0;
 }
@@ -76,7 +86,8 @@ int main(void) {
 
 
 // --== * Menu Inicial * ==-- //
-void menu_inicio(void) {
+char menu_inicio(void) {
+    char opcao;
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -89,12 +100,14 @@ void menu_inicio(void) {
     printf("//                                                                            //\n");
     printf("//             (* 1 *) ---===      * Entrar *       ===---                    //\n");
     printf("//             (* 2 *) ---===     * Cadastrar *     ===---                    //\n");
+    printf("//             (* 0 *) ---===       * Sair *        ===---                    //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    printf("               --== Escolha o destino desejado: ");
+    scanf(" %c", &opcao);
     getchar();
+    return opcao;
 }
 
 
@@ -123,5 +136,6 @@ char menu_principal(void) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("               --== Escolha o destino desejado: ");
     scanf(" %c", &opcao);
+    getchar();
     return opcao;
 }
