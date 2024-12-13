@@ -233,15 +233,15 @@ int gravacao_receita(char* arquivo, Rec* receita){
 
 int gravacao_usuario(char* arquivo, Usuario* usuario){
     FILE* file;
-    int contador = 0;
+    int contador = 1;
 
-    file = fopen(arquivo, "ab");
+    file = fopen(arquivo, "a+b");
     if(file == NULL) {
         return 0;
     }
 
-    while (fread(usuario, sizeof(Usuario), 1, file)) {
-        contador += 1;
+    while (fread(usuario, sizeof(Usuario), 1, file) == 1) {
+        contador ++;
     }
 
     usuario->id = contador;
@@ -250,4 +250,25 @@ int gravacao_usuario(char* arquivo, Usuario* usuario){
     fclose(file);
 
     return 1;
+}
+
+int autentica_usuario(char* email, char* senha) {
+    FILE* file;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));
+
+    file = fopen("usuarios.dat", "rb");
+    if(file == NULL) {
+        return 0;
+    }
+
+    while (fread(usuario, sizeof(Usuario), 1, file)) {
+        if ((strcmp(usuario->email, email) == 0) && (strcmp(usuario->senha, senha)) == 0) {
+            fclose(file);
+            return usuario->id;
+        }
+    }
+
+    fclose(file);
+    return 0;
 }

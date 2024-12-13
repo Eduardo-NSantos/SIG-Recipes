@@ -155,9 +155,10 @@ void cadastro(void) {
     strcpy(usuario->senha, senha);
     usuario->status = '1';
     if(gravacao_usuario("usuarios.dat", usuario)){
-        printf("//         --== Usuário cadastrado com sucesso                                //\n");
+        printf("//                 ---== Usuário cadastrado com sucesso ==---                 //\n");
+        printf("IDIDID: %d\n", usuario->id);
     }else{
-        printf("//         --== Erro ao realizar o cadastro                                   //\n");
+        printf("//                   ---== Erro ao realizar cadastro ==---                    //\n");
     }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -175,9 +176,10 @@ void cadastro(void) {
 
 
 // --== * Tela de Autenticação * ==-- //
-void autenticacao(void) {    
+int autenticacao(void) {    
     char* email;
     char* senha;
+    int id_user;
     
     system("clear||cls");
     printf("\n");
@@ -202,11 +204,13 @@ void autenticacao(void) {
         printf("//         --== Dado inválido, digite novamente: ");
         senha = input();
     }
-
-    // while (!autentica(email, senha)) {
-    //     printf("                       -------======= *  * =======-------                       \n");
-    //     printf("                          ---== Dados Inválidos ==---                           \n");
-    // }
+    printf("//                                                                            //\n");
+    id_user = autentica_usuario(email, senha);
+    if (id_user == 0) {
+        printf("//           ---== Dados inválidos, retornando à tela inicial ==---           //\n");
+    } else {
+        printf("//                   ---== Login Efetuado com sucesso ==---                   //\n");
+    }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -216,6 +220,7 @@ void autenticacao(void) {
 
     free(email);
     free(senha);
+    return id_user;
 }
 
 

@@ -25,7 +25,7 @@
 char menu_inicio(void);
 char menu_principal(void);
 
-void autenticacao(void);
+int autenticacao(void);
 void cadastro(void);
 //       --== ** ==--        //
 
@@ -45,13 +45,17 @@ void cadastro(void);
 int main(void) {
     char opcao;
     char opcao_principal;
+    int id;
     
     do {
         opcao = menu_inicio();
         switch (opcao) {
             case '1':
-                autenticacao();
-                do {
+                id = autenticacao();
+                if (id == 0) {
+                    break;
+                } else {
+                    do {
                     opcao_principal = menu_principal();
                     switch (opcao_principal) {
                         case '1':
@@ -72,6 +76,7 @@ int main(void) {
                         }    
                 } while (opcao_principal != '0');
                 break;
+                }
             case '2':
                 cadastro();
                 break;
