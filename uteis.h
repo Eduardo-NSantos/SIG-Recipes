@@ -18,3 +18,4 @@ int valida_modo(char*);
 int gravacao_receita(char*, Rec* receita);
 int gravacao_usuario(char*, Usuario* usuario);
 int autentica_usuario(char*, char*);
+Usuario* buscaUsuario(int);

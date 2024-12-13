@@ -286,3 +286,26 @@ int autentica_usuario(char* email, char* senha) {
     fclose(file);
     return 0;
 }
+
+Usuario* buscaUsuario(int id) {
+    FILE* file;
+    Usuario* usuario;
+    usuario = (Usuario*) malloc(sizeof(Usuario));
+
+    file = fopen("usuarios.dat", "rb");
+    if(file == NULL) {
+        return 0;
+    }
+
+    while (fread(usuario, sizeof(Usuario), 1, file)) {
+        if (usuario->id == id) {
+            fclose(file);
+            return usuario;
+        }
+    }
+
+    fclose(file);
+    free(usuario);
+
+    return NULL;
+}

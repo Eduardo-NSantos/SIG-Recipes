@@ -78,7 +78,11 @@ char menu_usuario(void) {
 
 // --== * Visualiza Dados * ==-- //
 void ver_dados(int id) {
-    getchar();
+    Usuario* usuario;
+    
+    usuario = buscaUsuario(id);
+
+    system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -88,11 +92,11 @@ void ver_dados(int id) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                       ---===       Nome        ===---                      //\n");
-    printf("//                       ---===       Email       ===---                      //\n");
-    printf("//                  ---===  Número de Receitas: (* *)  ===---                 //\n");
+    printf("//    ---===  Nome: %s\n", usuario->nome);
+    printf("//    ---===  Email: %s\n", usuario->email);
+    printf("//    ---===  Número de Receitas: (* *)                                       //\n");
     printf("//                                                                            //\n");
-    printf("//                    ---=== Informações Adicionais ===---                    //\n");
+    printf("//    ---=== Informações Adicionais:                                          //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
