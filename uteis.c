@@ -212,14 +212,21 @@ void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, ch
 
 int gravacao_receita(char* arquivo, Rec* receita){
     FILE* file;
+    Usuario conta;
     int contador = 0;
     
-    file = fopen(arquivo, "ab");
+    if((file = fopen(arquivo, "rb")) != NULL){
+        fclose(file);
+        file = fopen(arquivo, "r+b");
+    }else{
+        file = fopen(arquivo, "w+b");
+    }
+
     if(file == NULL) {
         return 0;
     }
 
-    while (fread(receita, sizeof(Rec), 1, file)) {
+    while (fread(&conta, sizeof(Rec), 1, file)) {
         contador += 1;
     }
 
@@ -233,14 +240,21 @@ int gravacao_receita(char* arquivo, Rec* receita){
 
 int gravacao_usuario(char* arquivo, Usuario* usuario){
     FILE* file;
+    Usuario conta;
     int contador = 1;
 
-    file = fopen(arquivo, "a+b");
+    if((file = fopen(arquivo, "rb")) != NULL){
+        fclose(file);
+        file = fopen(arquivo, "r+b");
+    }else{
+        file = fopen(arquivo, "w+b");
+    }
+
     if(file == NULL) {
         return 0;
     }
 
-    while (fread(usuario, sizeof(Usuario), 1, file) == 1) {
+    while (fread(&conta, sizeof(Usuario), 1, file) == 1) {
         contador ++;
     }
 

@@ -22,8 +22,8 @@ struct usuario{
     char status;
 };
 
-void modulo_usuario(void);
+void modulo_usuario(int);
 char menu_usuario(void);
-void ver_dados(void);
+void ver_dados(int);
 void altera_dados(void);
 void deleta_conta(void);

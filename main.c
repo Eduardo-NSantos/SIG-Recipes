@@ -62,7 +62,7 @@ int main(void) {
                             modulo_cozinheiro();
                             break;
                         case '2':
-                            modulo_usuario();
+                            modulo_usuario(id);
                             break;
                         case '3':
                             modulo_receitas();

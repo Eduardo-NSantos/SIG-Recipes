@@ -29,14 +29,14 @@
 
 
 
-void modulo_usuario(void) {
+void modulo_usuario(int id) {
     char opcao;
 
     do {
         opcao = menu_usuario();
         switch (opcao) {
             case '1':
-                ver_dados();
+                ver_dados(id);
                 break;
             case '2':
                 altera_dados();
@@ -77,8 +77,8 @@ char menu_usuario(void) {
 }
 
 // --== * Visualiza Dados * ==-- //
-void ver_dados(void) {
-    system("clear||cls");
+void ver_dados(int id) {
+    getchar();
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -156,7 +156,7 @@ void cadastro(void) {
     usuario->status = '1';
     if(gravacao_usuario("usuarios.dat", usuario)){
         printf("//                 ---== Usuário cadastrado com sucesso ==---                 //\n");
-        printf("IDIDID: %d\n", usuario->id);
+        printf("ID: %d", usuario->id);
     }else{
         printf("//                   ---== Erro ao realizar cadastro ==---                    //\n");
     }
