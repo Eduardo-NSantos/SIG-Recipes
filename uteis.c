@@ -212,7 +212,7 @@ void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, ch
 
 int gravacao_receita(char* arquivo, Rec* receita){
     FILE* file;
-    Usuario conta;
+    Rec conta;
     int contador = 0;
     
     if((file = fopen(arquivo, "rb")) != NULL){
