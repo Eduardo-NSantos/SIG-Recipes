@@ -18,8 +18,8 @@ struct receita {
     int id;
     char receita[52];
     char descricao[257];
-    char ingredientes[30][30];
-    char materiais[30][30];
+    char ingredientes[257];
+    char materiais[257];
     char tempo[7];
     char modo[256];
     char complex[3];

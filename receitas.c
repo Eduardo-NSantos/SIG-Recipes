@@ -141,19 +141,9 @@ void expandir_receita(int id) {
     printf("//    --== Tempo: %s\n", receita->tempo);
     printf("//    --== Complexidade: %s Estrela(s)\n", receita->complex);
     printf("//                                                                            //\n");
+    printf("--== Ingredientes: %s\n", receita->ingredientes);
+    printf("--== Materiais: %s\n", receita->materiais);
     printf("--== Descrição: %s\n", receita->descricao);
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                ---=== * Ingredientes / Materiais * ===---                  //\n");
-    printf("//                                                                            //\n");
-    // for (int i = 0; sizeof(receita->ingredientes); i++) {
-    //     printf("                          -= %s =-\n", receita->ingredientes[i]);
-    // }
-    // printf("//                                                                            //\n");
-    // for (int i = 0; sizeof(receita->materiais); i++) {
-    //     printf("                          -= %s =-\n", receita->materiais[i]);
-    // }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
