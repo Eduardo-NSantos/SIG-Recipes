@@ -79,7 +79,6 @@ char menu_usuario(void) {
 // --== * Visualiza Dados * ==-- //
 void ver_dados(int id) {
     Usuario* usuario;
-    
     usuario = buscaUsuario(id);
 
     system("clear||cls");

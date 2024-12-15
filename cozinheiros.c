@@ -30,6 +30,7 @@ typedef struct receita Rec;
 
 void modulo_cozinheiro(void) {
     char opcao;
+    int id_receita;
 
     do {
         opcao = menu_cozinheiro();
@@ -44,8 +45,8 @@ void modulo_cozinheiro(void) {
                 deleta_receita();
                 break;
             case '4':
-                ver_receitas();
-                expandir_receita();
+                id_receita = ver_receitas();
+                expandir_receita(id_receita);
                 break;
         }
     } while (opcao != '0');

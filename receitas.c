@@ -15,7 +15,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "receitas.h"
+#include "cozinheiros.h"
+#include "uteis.h"
 
 
 
@@ -28,17 +31,18 @@
 
 void modulo_receitas(void) {
     char opcao;
+    int id_receita;
 
     do {
         opcao = menu_receitas();
         switch (opcao) {
             case '1':
-                ver_receitas();
-                expandir_receita();
+                id_receita = ver_receitas();
+                expandir_receita(id_receita);
                 break;
             case '2':
-                ver_receitas();
-                expandir_receita();
+                id_receita = ver_receitas();
+                expandir_receita(id_receita);
                 break;
         }
     } while (opcao != '0');
@@ -73,7 +77,13 @@ char menu_receitas(void) {
 
 
 // --== * Visualiza Receitas * ==-- //
-void ver_receitas(void) {
+int ver_receitas(void) {
+    Rec** v_receitas;
+    int opcao;
+    int tamanhoarray = contaReceitas("receitas.dat");
+
+    v_receitas = listaReceitas();
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -84,10 +94,11 @@ void ver_receitas(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                         (* 1 *) Receita 1                                  //\n");
-    printf("//                         (* 2 *) Receita 2                                  //\n");
-    printf("//                         (* 3 *) Receita 3                                  //\n");
-    printf("//                         (* 0 *) Retornar                                   //\n");
+    for (int i = 0; i < tamanhoarray; i++) {
+        printf("//    (* %d *) %s\n", i+1, v_receitas[i]->receita);    
+    }
+    printf("//                                                                            //\n");
+    printf("//    (* 0 *) Retornar                                                        //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
@@ -100,47 +111,59 @@ void ver_receitas(void) {
     printf("//                         --= ( * Favoritos * ) =--                          //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    printf("               --== Digite o ID da receita: ");
+    scanf(" %d", &opcao);
     getchar();
+
+    for (int i = 0; i < tamanhoarray; i++) {
+        free(v_receitas[i]);
+    }
+    free(v_receitas);
+
+    return opcao;
 }
 
 
 
 // --== * Mostra detalhes da receita * ==-- //
-void expandir_receita() {
+void expandir_receita(int id) {
+    Rec* receita;
+    receita = buscaReceita(id);
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                         --== Nome da Receita ==--                          //\n");
-    printf("//                            --== Cozinheiro ==--                            //\n");
-    printf("//                         --== Data de Cadastro ==--                         //\n");
-    printf("//                         --== Tempo de Preparo ==--                         //\n");
-    printf("//                           --== Complexidade ==--                           //\n");
+    printf("//    --== %s\n", receita->receita);
+    printf("//    --== Cozinheiro ==--                                                    //\n");
+    printf("//    --== Data de Cadastro \n");
+    printf("//    --== Tempo: %s\n", receita->tempo);
+    printf("//    --== Complexidade: %s Estrela(s)\n", receita->complex);
     printf("//                                                                            //\n");
-    printf("//                                 Descrição                                  //\n");
+    printf("--== Descrição: %s\n", receita->descricao);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//                ---=== * Ingredientes / Materiais * ===---                  //\n");
     printf("//                                                                            //\n");
-    printf("//                            -= Ingrediente 1 =-                             //\n");
-    printf("//                            -= Ingrediente 2 =-                             //\n");
-    printf("//                            -= Ingrediente 3 =-                             //\n");
-    printf("//                                                                            //\n");
-    printf("//                              -= Material 1 =-                              //\n");
-    printf("//                              -= Material 1 =-                              //\n");
-    printf("//                              -= Material 1 =-                              //\n");
+    // for (int i = 0; sizeof(receita->ingredientes); i++) {
+    //     printf("                          -= %s =-\n", receita->ingredientes[i]);
+    // }
+    // printf("//                                                                            //\n");
+    // for (int i = 0; sizeof(receita->materiais); i++) {
+    //     printf("                          -= %s =-\n", receita->materiais[i]);
+    // }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                     ---=== * Modo de Preparo * ===---                      //\n");
+    printf("--== Modo de Preparo: %s\n", receita->modo);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+
+    free(receita);
 }

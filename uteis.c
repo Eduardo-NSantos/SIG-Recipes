@@ -213,7 +213,7 @@ void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, ch
 int gravacao_receita(char* arquivo, Rec* receita){
     FILE* file;
     Rec conta;
-    int contador = 0;
+    int contador = 1;
     
     if((file = fopen(arquivo, "rb")) != NULL){
         fclose(file);
@@ -227,7 +227,7 @@ int gravacao_receita(char* arquivo, Rec* receita){
     }
 
     while (fread(&conta, sizeof(Rec), 1, file)) {
-        contador += 1;
+        contador++;
     }
 
     receita->id = contador;
@@ -306,6 +306,81 @@ Usuario* buscaUsuario(int id) {
 
     fclose(file);
     free(usuario);
+
+    return NULL;
+}
+
+Rec** listaReceitas(void) {
+    FILE* file;
+    Rec* receita;
+    Rec** v_receitas;
+    int tamanho = 0;
+    receita = (Rec*) malloc(sizeof(Rec));
+
+    file = fopen("receitas.dat", "rb");
+    if(file == NULL) {
+        return NULL;
+    }
+
+    while(fread(receita, sizeof(Rec), 1, file) == 1) { 
+        tamanho++;
+    }
+
+    v_receitas = (Rec**) malloc(tamanho * sizeof(Rec*));
+
+    fseek(file, 0, SEEK_SET); // Move o ponteiro para o início do arquivo
+
+    for(int i = 0; i < tamanho; i++) {
+        v_receitas[i] = (Rec*) malloc(sizeof(Rec));
+        fread(v_receitas[i], sizeof(Rec), 1, file);
+    }
+
+    fclose(file);
+    free(receita);
+
+    return v_receitas;
+}
+
+int contaReceitas(char* arquivo) {
+    FILE* file;
+    Rec* receita;
+    receita = (Rec*) malloc(sizeof(Rec));
+    int tamanho = 0;
+
+    file = fopen(arquivo, "rb");
+    if(file == NULL) {
+        return 0;
+    }
+
+    while(fread(receita, sizeof(Rec), 1, file) == 1) { 
+        tamanho++;
+    }
+
+    free(receita);
+    fclose(file);
+
+    return tamanho;
+}
+
+Rec* buscaReceita(int id) {
+    FILE* file;
+    Rec* receita;
+    receita = (Rec*) malloc(sizeof(Rec));
+
+    file = fopen("receitas.dat", "rb");
+    if(file == NULL) {
+        return 0;
+    }
+
+    while (fread(receita, sizeof(Rec), 1, file)) {
+        if (receita->id == id) {
+            fclose(file);
+            return receita;
+        }
+    }
+
+    fclose(file);
+    free(receita);
 
     return NULL;
 }

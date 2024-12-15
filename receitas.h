@@ -15,5 +15,5 @@
 // --== * Assinaturas * ==-- //
 void modulo_receitas(void);
 char menu_receitas(void);
-void ver_receitas(void);
-void expandir_receita(void);
+int ver_receitas(void);
+void expandir_receita(int);
