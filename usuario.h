@@ -26,4 +26,4 @@ void modulo_usuario(int);
 char menu_usuario(void);
 void ver_dados(int);
 void altera_dados(void);
-void deleta_conta(void);
+void deleta_conta(int);

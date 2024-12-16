@@ -42,7 +42,7 @@ void modulo_usuario(int id) {
                 altera_dados();
                 break;
             case '3':
-                deleta_conta();
+                deleta_conta(id);
                 break;
         }
     } while (opcao != '0');
@@ -93,6 +93,7 @@ void ver_dados(int id) {
     printf("//                                                                            //\n");
     printf("//    ---===  Nome: %s\n", usuario->nome);
     printf("//    ---===  Email: %s\n", usuario->email);
+    printf("//    ---===  Status: %c\n", usuario->status);
     printf("//    ---===  Número de Receitas: (* *)                                       //\n");
     printf("//                                                                            //\n");
     printf("//    ---=== Informações Adicionais:                                          //\n");
@@ -287,7 +288,13 @@ void altera_dados(void) {
 
 
 // --== * Deletar Conta * ==-- //
-void deleta_conta(void) {
+void deleta_conta(int id) {
+    FILE* file;
+    file = fopen("usuarios.dat", "r+b");
+    Usuario* usuario;
+    usuario = buscaUsuario(id);
+    char opcao;
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -303,8 +310,15 @@ void deleta_conta(void) {
     printf("//                      ---=== Confirmar (S/N):  ===---                       //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    printf("               --== Escolha a opção desejada: ");
+    scanf(" %c", &opcao);
     getchar();
+
+    if (opcao == 's' || opcao == 'S') {
+        usuario->status = '0';
+        fwrite(usuario, sizeof(Usuario), 1, file);
+    }
+
+    fclose(file);
 }
