@@ -279,6 +279,34 @@ int autentica_usuario(char* email, char* senha) {
     return 0;
 }
 
+int atualizaUsuario(char *arquivo, int id, Usuario* novoUsuario){
+    FILE *fp = fopen(arquivo, "rb+");
+    if (fp == NULL){
+        perror("Erro ao abrir o arquivo");
+        return 0;
+    }
+
+    Usuario usuarioAtual;
+    while (fread(&usuarioAtual, sizeof(Usuario), 1, fp)){
+        if (usuarioAtual.id == id) {
+            fseek(fp, -sizeof(Usuario), SEEK_CUR);
+
+            novoUsuario->id = usuarioAtual.id;
+            novoUsuario->status = usuarioAtual.status;
+            if (!fwrite(novoUsuario, sizeof(Usuario), 1, fp)){
+                fclose(fp);
+                return 0;
+            }
+
+            fclose(fp);
+            return 1;
+        }
+    }
+
+    fclose(fp);
+    return 0;
+}
+
 Usuario* buscaUsuario(int id) {
     FILE* file;
     Usuario* usuario;

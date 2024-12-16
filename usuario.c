@@ -39,7 +39,7 @@ void modulo_usuario(int id) {
                 ver_dados(id);
                 break;
             case '2':
-                altera_dados();
+                altera_dados(id);
                 break;
             case '3':
                 deleta_conta(id);
@@ -231,7 +231,7 @@ int autenticacao(void) {
 
 
 // --== * Altera Dados * ==-- //
-void altera_dados(void) {
+void altera_dados(int id) {
     char* nome;
     char* email;
     char* senha;
@@ -248,36 +248,39 @@ void altera_dados(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome: ");
+    printf("//         --== Novo nome: ");
     nome = input();
     while (!valida_nome(nome)) {
         printf("//         --== Dado inválido, digite novamente: ");
         nome = input();
     }
-    printf("//         --== Email: ");
+    printf("//         --== Novo email: ");
     email = input();
     while (!valida_email(email)) {
         printf("//         --== Dado inválido, digite novamente: ");
         email = input();
     }
-    printf("//         --== Senha: ");
+    printf("//         --== Nova senha: ");
     senha = input();
     while (!valida_senha(senha)) {
         printf("//         --== Dado inválido, digite novamente: ");
         senha = input();
     }
     printf("//                                                                            //\n");
-    printf("//         ---== Informações Adicionais (Opcional):                           //\n");
+    strcpy(usuario->nome, nome);
+    strcpy(usuario->email, email);
+    strcpy(usuario->senha, senha);
+    if(atualizaUsuario("usuarios.dat", id, usuario)){
+        printf("//                   ---== Usuário editado com sucesso ==---                  //\n");
+    }else{
+        printf("//                     ---== Erro ao realizar edição ==---                    //\n");
+    }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-
-    strcpy(usuario->nome, nome);
-    strcpy(usuario->email, email);
-    strcpy(usuario->senha, senha);
 
     free(nome);
     free(email);
