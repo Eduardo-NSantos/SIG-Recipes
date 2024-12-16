@@ -320,5 +320,16 @@ void deleta_conta(int id) {
         fwrite(usuario, sizeof(Usuario), 1, file);
     }
 
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                 ---=== Usuário excluído com sucesso ===---                 //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
     fclose(file);
 }
