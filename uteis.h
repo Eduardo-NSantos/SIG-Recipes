@@ -8,7 +8,6 @@ int valida_nome(char*);
 int valida_senha(char*);
 int valida_receita(char*);
 int valida_descricao(char*);
-int valida_tamanho(char*);
 void preencheReceita(char*, char*, char*, char*, char*, char*, char*, Rec* dados);
 int valida_ingredientes(char*);
 int valida_materiais(char*);
