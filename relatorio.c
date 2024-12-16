@@ -32,7 +32,7 @@ void modulo_relatorio(void) {
         opcao = menu_relatorio();
         switch (opcao) {
             case '1':
-                ver_dados();
+                ver_dados(1);
                 break;
             case '2':
                 ver_receitas();

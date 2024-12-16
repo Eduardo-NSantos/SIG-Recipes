@@ -87,16 +87,11 @@ char menu_cozinheiro(void) {
 void cadastra_receita(void) {
     char* receita;
     char* descricao;
-    char** ingredientes;
-    char** materiais;
+    char* ingredientes;
+    char* materiais;
     char* tempo;
     char* modo;
     char* complex;
-
-    char* quantidade_ingredientes;
-    char* quantidade_materiais;
-
-    int quantidade = 0;
 
     Rec* rec;
     rec = (Rec*) malloc(sizeof(Rec));
@@ -135,25 +130,19 @@ void cadastra_receita(void) {
     }
 
     printf("//                                                                            //\n"); 
-    printf("//         --== Informe a quantidade de ingredientes: ");
-    quantidade_ingredientes = input();
-    while (!valida_tamanho(quantidade_ingredientes)) {
+    printf("//         --== Ingredientes: ");
+    ingredientes = input();
+    while (!valida_ingredientes(ingredientes)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        quantidade_ingredientes = input();
+        ingredientes = input();
     }
-    quantidade = atoi(quantidade_ingredientes);
-    ingredientes = (char**) malloc(quantidade * sizeof(char*));
-    valida_ingredientes(ingredientes, quantidade, rec);
 
-    printf("//         --== Informe a quantidade de materiais: ");
-    quantidade_materiais = input();
-    while (!valida_tamanho(quantidade_materiais)) {
+    printf("//         --== Materiais: ");
+    materiais = input();
+    while (!valida_materiais(materiais)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        quantidade_materiais = input();
+        materiais = input();
     }
-    quantidade = atoi(quantidade_materiais);
-    materiais = (char**) malloc(quantidade * sizeof(char*));
-    valida_materiais(materiais, quantidade, rec);
 
     printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
@@ -181,26 +170,16 @@ void cadastra_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(receita, descricao, tempo, modo, complex, rec);
+    preencheReceita(receita, descricao, ingredientes, materiais, tempo, modo, complex, rec);
     gravacao_receita("receitas.dat", rec);
 
     free(receita);
     free(complex);
+    free(ingredientes);
+    free(materiais);
     free(tempo);
     free(descricao);
     free(modo);
-    quantidade = atoi(quantidade_ingredientes);
-    for(int i = 0; i < quantidade; i++){
-        free(ingredientes[i]);
-    }
-    free(ingredientes);
-    quantidade = atoi(quantidade_materiais);
-    for(int i = 0; i < quantidade; i++){
-        free(materiais[i]);
-    }
-    free(materiais);
-    free(quantidade_ingredientes);
-    free(quantidade_materiais);
     free(rec);
 }
 
@@ -210,16 +189,11 @@ void cadastra_receita(void) {
 void altera_receita(void) {
     char* receita;
     char* descricao;
-    char** ingredientes;
-    char** materiais;
+    char* ingredientes;
+    char* materiais;
     char* tempo;
     char* modo;
     char* complex;
-
-    char* quantidade_ingredientes;
-    char* quantidade_materiais;
-
-    int quantidade = 0;
 
     Rec* dados;
     dados = (Rec*) malloc(sizeof(Rec));
@@ -258,25 +232,19 @@ void altera_receita(void) {
     }
 
     printf("//                                                                            //\n"); 
-    printf("//         --== Informe a quantidade de ingredientes: ");
-    quantidade_ingredientes = input();
-    while (!valida_tamanho(quantidade_ingredientes)) {
+    printf("//         --== Ingredientes: ");
+    ingredientes = input();
+    while (!valida_ingredientes(ingredientes)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        quantidade_ingredientes = input();
+        ingredientes = input();
     }
-    quantidade = atoi(quantidade_ingredientes);
-    ingredientes = (char**) malloc(quantidade * sizeof(char*));
-    valida_ingredientes(ingredientes, quantidade, dados);
 
-    printf("//         --== Informe a quantidade de materiais: ");
-    quantidade_materiais = input();
-    while (!valida_tamanho(quantidade_materiais)) {
+    printf("//         --== Materiais: ");
+    materiais = input();
+    while (!valida_materiais(materiais)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        quantidade_materiais = input();
+        materiais = input();
     }
-    quantidade = atoi(quantidade_materiais);
-    materiais = (char**) malloc(quantidade * sizeof(char*));
-    valida_materiais(materiais, quantidade, dados);
 
     printf("//                                                                            //\n");
     printf("//                         ---== * Descricao * ==---                          //\n");
@@ -304,25 +272,16 @@ void altera_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(receita, descricao, tempo, modo, complex, dados);
+    preencheReceita(receita, descricao, ingredientes, materiais, tempo, modo, complex, dados);
 
     free(receita);
     free(complex);
+    free(ingredientes);
+    free(materiais);
     free(tempo);
     free(descricao);
     free(modo);
-    quantidade = atoi(quantidade_ingredientes);
-    for(int i = 0; i < quantidade; i++){
-        free(ingredientes[i]);
-    }
-    free(ingredientes);
-    quantidade = atoi(quantidade_materiais);
-    for(int i = 0; i < quantidade; i++){
-        free(materiais[i]);
-    }
-    free(materiais);
-    free(quantidade_ingredientes);
-    free(quantidade_materiais);
+    free(dados);
 }
 
 

@@ -131,32 +131,22 @@ int valida_tamanho(char *tamanho) {
     return 1;
 }
 
-void valida_ingredientes(char** array_ingredientes, int tamanho, Rec* dados){
-    char* ingrediente;
-    int tamanho_palavra;
+int valida_ingredientes(char* ingredientes){
+    int tamanho = strlen(ingredientes);
 
-    for(int i = 0; i < tamanho; i++){
-        printf("%d: ", i + 1);
-        ingrediente = input();
-        tamanho_palavra = strlen(ingrediente) + 1;
-        array_ingredientes[i] = (char*) malloc(tamanho_palavra * sizeof(char));
-        strcpy(array_ingredientes[i], ingrediente);
-        strcpy(dados->ingredientes[i], array_ingredientes[i]);
+    if (tamanho > 255){
+        return 0;
     }
+    return 1;
 }
 
-void valida_materiais(char** array_materiais, int tamanho, Rec* dados){
-    char* material;
-    int tamanho_palavra;
+int valida_materiais(char* materiais){
+    int tamanho = strlen(materiais);
 
-    for(int i = 0; i < tamanho; i++){
-        printf("%d: ", i + 1);
-        material = input();
-        tamanho_palavra = strlen(material);
-        array_materiais[i] = (char*) malloc(tamanho_palavra * sizeof(char*));
-        strcpy(array_materiais[i], material);
-        strcpy(dados->materiais[i], array_materiais[i]);
+    if (tamanho > 255){
+        return 0;
     }
+    return 1;
 }
 
 int valida_tempo(char *tempo) {
@@ -201,9 +191,11 @@ int valida_modo(char *modo) {
     return 1;
 }
 
-void preencheReceita(char* receita, char* descricao, char* tempo, char* modo, char* complex, Rec* dados) {
+void preencheReceita(char* receita, char* descricao, char* ingredientes, char* materiais, char* tempo, char* modo, char* complex, Rec* dados) {
     strcpy(dados->receita, receita);
     strcpy(dados->descricao, descricao);
+    strcpy(dados->ingredientes, ingredientes);
+    strcpy(dados->materiais, materiais);
     strcpy(dados->tempo, tempo);
     strcpy(dados->modo, modo);
     strcpy(dados->complex, complex);
