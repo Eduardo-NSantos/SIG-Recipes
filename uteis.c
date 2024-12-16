@@ -291,6 +291,8 @@ int atualizaUsuario(char *arquivo, int id, Usuario* novoUsuario){
         if (usuarioAtual.id == id) {
             fseek(fp, -sizeof(Usuario), SEEK_CUR);
 
+            novoUsuario->id = usuarioAtual.id;
+            novoUsuario->status = usuarioAtual.status;
             if (!fwrite(novoUsuario, sizeof(Usuario), 1, fp)){
                 fclose(fp);
                 return 0;
