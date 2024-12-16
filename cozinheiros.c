@@ -46,6 +46,9 @@ void modulo_cozinheiro(void) {
                 break;
             case '4':
                 id_receita = ver_receitas();
+                if(id_receita == 0){
+                    break;
+                }
                 expandir_receita(id_receita);
                 break;
         }
