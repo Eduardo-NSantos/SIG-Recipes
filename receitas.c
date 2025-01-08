@@ -18,6 +18,7 @@
 #include <string.h>
 #include "receitas.h"
 #include "cozinheiros.h"
+#include "usuario.h"
 #include "uteis.h"
 
 
@@ -128,16 +129,15 @@ int ver_receitas(void) {
 
 // --== * Mostra detalhes da receita * ==-- //
 void expandir_receita(int id) {
-    Rec* receita;
-    receita = buscaReceita(id);
+    Rec* receita = buscaReceita(id);
+    Usuario* usuario = buscaUsuario(receita->id_cozinheiro); 
 
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
     printf("//    --== %s\n", receita->receita);
-    printf("//    --== Cozinheiro ==--                                                    //\n");
-    printf("//    --== Data de Cadastro \n");
+    printf("//    --== Cozinheiro: %s\n", usuario->nome);
     printf("//    --== Tempo: %s\n", receita->tempo);
     printf("//    --== Complexidade: %s Estrela(s)\n", receita->complex);
     printf("//                                                                            //\n");

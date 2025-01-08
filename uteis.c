@@ -177,7 +177,10 @@ int valida_modo(char *modo) {
     return 1;
 }
 
-void preencheReceita(char* receita, char* descricao, char* ingredientes, char* materiais, char* tempo, char* modo, char* complex, Rec* dados) {
+void preencheReceita(int id_cozinheiro, char* receita, char* descricao, char* ingredientes, char* materiais, char* tempo, char* modo, char* complex, Rec* dados) {
+    if(id_cozinheiro != 0){
+        dados->id_cozinheiro = id_cozinheiro;
+    }
     strcpy(dados->receita, receita);
     strcpy(dados->descricao, descricao);
     strcpy(dados->ingredientes, ingredientes);

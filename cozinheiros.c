@@ -28,7 +28,7 @@ typedef struct receita Rec;
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
-void modulo_cozinheiro(void) {
+void modulo_cozinheiro(int id_usuario) {
     char opcao;
     int id_receita;
 
@@ -36,7 +36,7 @@ void modulo_cozinheiro(void) {
         opcao = menu_cozinheiro();
         switch (opcao) {
             case '1':
-                cadastra_receita();
+                cadastra_receita(id_usuario);
                 break;
             case '2':
                 altera_receita();
@@ -87,7 +87,7 @@ char menu_cozinheiro(void) {
 
 
 // --== * Cadastra Receita * ==-- //
-void cadastra_receita(void) {
+void cadastra_receita(int id_cozinheiro) {
     char* receita;
     char* descricao;
     char* ingredientes;
@@ -173,7 +173,7 @@ void cadastra_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(receita, descricao, ingredientes, materiais, tempo, modo, complex, rec);
+    preencheReceita(id_cozinheiro, receita, descricao, ingredientes, materiais, tempo, modo, complex, rec);
     gravacao_receita("receitas.dat", rec);
 
     free(receita);
@@ -275,7 +275,7 @@ void altera_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(receita, descricao, ingredientes, materiais, tempo, modo, complex, dados);
+    preencheReceita(0, receita, descricao, ingredientes, materiais, tempo, modo, complex, dados);
 
     free(receita);
     free(complex);

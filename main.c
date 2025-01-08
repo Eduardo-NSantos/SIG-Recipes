@@ -56,7 +56,7 @@ int main(void) {
                     opcao_principal = menu_principal();
                     switch (opcao_principal) {
                         case '1':
-                            modulo_cozinheiro();
+                            modulo_cozinheiro(id);
                             break;
                         case '2':
                             modulo_usuario(id);

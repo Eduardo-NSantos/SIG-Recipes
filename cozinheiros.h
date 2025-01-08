@@ -16,6 +16,7 @@
 typedef struct receita Rec;
 struct receita {
     int id;
+    int id_cozinheiro;
     char receita[52];
     char descricao[257];
     char ingredientes[257];
@@ -26,9 +27,9 @@ struct receita {
     char status;
 };
 
-void modulo_cozinheiro(void);
+void modulo_cozinheiro(int);
 char menu_cozinheiro(void);
-void cadastra_receita(void);
+void cadastra_receita(int);
 void altera_receita(void);
 void deleta_receita(void);
 
