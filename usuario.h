@@ -27,3 +27,5 @@ char menu_usuario(void);
 void ver_dados(int);
 void altera_dados(int);
 void deleta_conta(int);
+int autenticacao(void);
+void cadastro(void);

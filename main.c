@@ -24,9 +24,6 @@
 // --== * Assinaturas * ==-- //
 char menu_inicio(void);
 char menu_principal(void);
-
-int autenticacao(void);
-void cadastro(void);
 //       --== ** ==--        //
 
 
