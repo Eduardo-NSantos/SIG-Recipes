@@ -25,14 +25,14 @@
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
-void modulo_relatorio(void) {
+void modulo_relatorio(int id_usuario) {
     char opcao;
 
     do {
         opcao = menu_relatorio();
         switch (opcao) {
             case '1':
-                ver_dados(1);
+                ver_dados(id_usuario);
                 break;
             case '2':
                 ver_receitas();
@@ -54,7 +54,7 @@ char menu_relatorio(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//           (* 1 *) ---===  * Consultar Usuários *  ===---                   //\n");
+    printf("//           (* 1 *) ---===  * Ver perfil *  ===---                           //\n");
     printf("//           (* 2 *) ---===  * Consultar Receitas *  ===---                   //\n");
     printf("//           (* 0 *) ---===      * Retornar *      ===---                     //\n");
     printf("//                                                                            //\n");
