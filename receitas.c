@@ -12,15 +12,14 @@
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "receitas.h"
-#include "cozinheiros.h"
 #include "usuario.h"
 #include "uteis.h"
 
+typedef struct receita Rec;
 
 
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
@@ -29,20 +28,27 @@
 //                                                                            //
 //((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
-
-void modulo_receitas(void) {
+void modulo_cozinheiro(int id_usuario) {
     char opcao;
     int id_receita;
 
     do {
-        opcao = menu_receitas();
+        opcao = menu_cozinheiro();
         switch (opcao) {
             case '1':
-                id_receita = ver_receitas();
-                expandir_receita(id_receita);
+                cadastra_receita(id_usuario);
                 break;
             case '2':
+                altera_receita();
+                break;
+            case '3':
+                deleta_receita();
+                break;
+            case '4':
                 id_receita = ver_receitas();
+                if(id_receita == 0){
+                    break;
+                }
                 expandir_receita(id_receita);
                 break;
         }
@@ -50,22 +56,25 @@ void modulo_receitas(void) {
 }
 
 
-// --== * Menu de Receitas  * ==-- //
-char menu_receitas(void) {
+
+// --== * Menu do Cozinheiro * ==-- //
+char menu_cozinheiro(void) {
     char opcao;
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//                         - --== * Receitas * ==---                          //\n");
+    printf("//                      ---== * Menu Cozinheiro * ==---                       //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//             (* 1 *) --== * Ver Receitas (Todas) * ==--                     //\n");
-    printf("//             (* 2 *) --==  * Receitas Favoritas *  ==--                     //\n");
-    printf("//             (* 0 *) ---===     * Retornar *     ===---                     //\n");
+    printf("//           (* 1 *) ---===  *  Cadastrar Receita  *  ===---                  //\n");
+    printf("//           (* 2 *) ---===  *  Modificar Receita  *  ===---                  //\n");
+    printf("//           (* 3 *) ---===  *    Apagar Receita   *  ===---                  //\n");
+    printf("//           (* 4 *) ---===  * Visualizar Receitas *  ===---                  //\n");
+    printf("//           (* 0 *) ---===  *       Retornar      *  ===---                  //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("                       -------======= *  * =======-------                       \n");
@@ -76,6 +85,232 @@ char menu_receitas(void) {
 }
 
 
+
+// --== * Cadastra Receita * ==-- //
+void cadastra_receita(int id_cozinheiro) {
+    char* receita;
+    char* descricao;
+    char* ingredientes;
+    char* materiais;
+    char* tempo;
+    char* modo;
+    char* complex;
+
+    Rec* rec;
+    rec = (Rec*) malloc(sizeof(Rec));
+
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---== * Cadastrar Receita * ==---                     //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome da Receita: ");
+    receita = input();
+    while (!valida_receita(receita)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        receita = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//         --== Complexidade (1-5): ");
+    complex = input();
+    while (!valida_complexidade(complex)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        complex = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//         --== Tempo de Preparo (Formato 00:00): ");
+    tempo = input();
+    while (!valida_tempo(tempo)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        tempo = input();
+    }
+
+    printf("//                                                                            //\n"); 
+    printf("//         --== Ingredientes: ");
+    ingredientes = input();
+    while (!valida_ingredientes(ingredientes)) {
+        printf("//         --== Valor inválido, digite novamente: ");
+        ingredientes = input();
+    }
+
+    printf("//         --== Materiais: ");
+    materiais = input();
+    while (!valida_materiais(materiais)) {
+        printf("//         --== Valor inválido, digite novamente: ");
+        materiais = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//                         ---== * Descricao * ==---                          //\n");
+    printf("\n");
+    printf("--== ");                                                 
+    descricao = input();
+    while (!valida_descricao(descricao)) {
+        printf("--== Inválido, digite novamente: ");
+        descricao = input();
+    }
+
+    printf("//                                                                            //\n"); 
+    printf("//                       ---== * Modo de Preparo * ==---                      //\n");
+    printf("\n");
+    printf("--== ");
+    modo = input();
+    while (!valida_modo(modo)) {
+        printf("--== Inválido, digite novamente: ");
+        modo = input();
+    }
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    preencheReceita(id_cozinheiro, receita, descricao, ingredientes, materiais, tempo, modo, complex, rec);
+    gravacao_receita("receitas.dat", rec);
+
+    free(receita);
+    free(complex);
+    free(ingredientes);
+    free(materiais);
+    free(tempo);
+    free(descricao);
+    free(modo);
+    free(rec);
+}
+
+
+
+// --== * Altera Receitas  * ==-- //
+void altera_receita(void) {
+    char* receita;
+    char* descricao;
+    char* ingredientes;
+    char* materiais;
+    char* tempo;
+    char* modo;
+    char* complex;
+
+    Rec* dados;
+    dados = (Rec*) malloc(sizeof(Rec));
+    
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Alterar Receita * ==---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//         --== Nome da Receita: ");
+    receita = input();
+    while (!valida_receita(receita)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        receita = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//         --== Complexidade (1-5): ");
+    complex = input();
+    while (!valida_complexidade(complex)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        complex = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//         --== Tempo de Preparo (Formato 00:00): ");
+    tempo = input();
+    while (!valida_tempo(tempo)) {
+        printf("//         --== Dado inválido, digite novamente: ");
+        tempo = input();
+    }
+
+    printf("//                                                                            //\n"); 
+    printf("//         --== Ingredientes: ");
+    ingredientes = input();
+    while (!valida_ingredientes(ingredientes)) {
+        printf("//         --== Valor inválido, digite novamente: ");
+        ingredientes = input();
+    }
+
+    printf("//         --== Materiais: ");
+    materiais = input();
+    while (!valida_materiais(materiais)) {
+        printf("//         --== Valor inválido, digite novamente: ");
+        materiais = input();
+    }
+
+    printf("//                                                                            //\n");
+    printf("//                         ---== * Descricao * ==---                          //\n");
+    printf("\n");
+    printf("--== ");                                                 
+    descricao = input();
+    while (!valida_descricao(descricao)) {
+        printf("--== Inválido, digite novamente: ");
+        descricao = input();
+    }
+
+    printf("//                                                                            //\n"); 
+    printf("//                       ---== * Modo de Preparo * ==---                      //\n");
+    printf("\n");
+    printf("--== ");
+    modo = input();
+    while (!valida_modo(modo)) {
+        printf("--== Inválido, digite novamente: ");
+        modo = input();
+    }
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    preencheReceita(0, receita, descricao, ingredientes, materiais, tempo, modo, complex, dados);
+
+    free(receita);
+    free(complex);
+    free(ingredientes);
+    free(materiais);
+    free(tempo);
+    free(descricao);
+    free(modo);
+    free(dados);
+}
+
+
+
+// --== * Deleta Receita * ==-- //
+void deleta_receita(void) {
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---== * Deletar Receita * ==---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//              ---=== Esta receita excluida permanentemente ===---           //\n");
+    printf("//                                                                            //\n");
+    printf("//                       ---=== Confirmar (S/N):  ===---                      //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+}
 
 // --== * Visualiza Receitas * ==-- //
 int ver_receitas(void) {
@@ -125,8 +360,6 @@ int ver_receitas(void) {
     return opcao;
 }
 
-
-
 // --== * Mostra detalhes da receita * ==-- //
 void expandir_receita(int id) {
     Rec* receita = buscaReceita(id);
@@ -157,3 +390,5 @@ void expandir_receita(int id) {
 
     free(receita);
 }
+
+

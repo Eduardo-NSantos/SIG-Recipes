@@ -2,7 +2,7 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
-#include "cozinheiros.h"
+#include "receitas.h"
 #include "usuario.h"
 #define max 30
 

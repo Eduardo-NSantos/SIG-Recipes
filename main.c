@@ -14,9 +14,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "informacoes.h"
-#include "receitas.h"
 #include "usuario.h"
-#include "cozinheiros.h"
+#include "receitas.h"
 #include "relatorio.h"
 
 
@@ -62,12 +61,9 @@ int main(void) {
                             modulo_usuario(id);
                             break;
                         case '3':
-                            modulo_receitas();
-                            break;
-                        case '4':
                             modulo_relatorio(id);
                             break;
-                        case '5':
+                        case '4':
                             modulo_informacoes();
                             break;
                         }    
@@ -127,11 +123,10 @@ char menu_principal(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//             (* 1 *) ---===  * Menu Cozinheiro *  ===---                    //\n");
-    printf("//             (* 2 *) ---===    * Menu Usuário *   ===---                    //\n");
-    printf("//             (* 3 *) ---===   * Menu Receitas  *  ===---                    //\n");
-    printf("//             (* 4 *) ---===   * Menu Relatório *  ===---                    //\n");
-    printf("//             (* 5 *) ---===    * Informações *    ===---                    //\n");
+    printf("//             (* 1 *) ---===  *  Menu Receitas  *  ===---                    //\n");
+    printf("//             (* 2 *) ---===  *  Menu Usuário   *  ===---                    //\n");
+    printf("//             (* 3 *) ---===  *  Menu Relatório *  ===---                    //\n");
+    printf("//             (* 4 *) ---===  *  Informações    *  ===---                    //\n");
     printf("//             (* 0 *) ---===       * Sair *        ===---                    //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
