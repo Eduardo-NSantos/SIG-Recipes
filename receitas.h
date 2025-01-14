@@ -19,7 +19,7 @@ struct receita {
     int id_cozinheiro;
     char receita[52];
     char descricao[257];
-    char ingredientes[257];
+    char ingredientes[500];
     char materiais[257];
     char tempo[7];
     char modo[256];
