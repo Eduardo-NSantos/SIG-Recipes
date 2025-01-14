@@ -54,9 +54,10 @@ char menu_relatorio(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//           (* 1 *) ---===  * Ver perfil *  ===---                           //\n");
-    printf("//           (* 2 *) ---===  * Consultar Receitas *  ===---                   //\n");
-    printf("//           (* 0 *) ---===      * Retornar *      ===---                     //\n");
+    printf("//     (* 1 *)              ---===  * Ver perfil *  ===---                    //\n");
+    printf("//     (* 2 *)           ---===  * Consultar Receitas *  ===---               //\n");
+    printf("//     (* 3 *)  ---===  * Consultar Receitas por ingrediente *  ===---        //\n");
+    printf("//     (* 0 *)           ---===      * Retornar *      ===---                 //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("                       -------======= *  * =======-------                       \n");

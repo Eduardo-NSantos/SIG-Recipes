@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int lista_ingredientes(char arq[25]) {
+char* lista_ingredientes(char* arquivo, char* ingrediente) {
     FILE *fp;
     char letra;
     char* texto;
@@ -11,8 +11,7 @@ int lista_ingredientes(char arq[25]) {
     int linhas;
     char ing[51];
 
-    printf("Exemplo de Leitura de Arquivos Texto\n");
-    fp = fopen("miojo_cremoso.txt", "rt");
+    fp = fopen(arquivo, "rt");
     if (fp == NULL){
         printf("Erro na leitura do arquivo\n!");
         exit(1);
@@ -21,7 +20,6 @@ int lista_ingredientes(char arq[25]) {
     fseek(fp, 0, SEEK_END);   //Manda o cursor para o fim do arquivo
     tam = ftell(fp);          //A posição final é igual ao tamanho do arquivo
     rewind(fp);               //Volta para o início do arquivo
-    printf("O arquivo tem %d chars\n", tam);
 
     linhas = 0;
     letra = fgetc(fp);
@@ -31,7 +29,6 @@ int lista_ingredientes(char arq[25]) {
         }
         letra = fgetc(fp);
     }
-    printf("O arquivo tem %d linhas\n", linhas);
 
     texto = (char*) malloc((tam+linhas+1)*sizeof(char));
 
@@ -45,23 +42,17 @@ int lista_ingredientes(char arq[25]) {
     }
     texto[i]= '\0';
     fclose(fp);
-
-    printf("Texto Lido: %d caracteres em %d linhas\n\n", i, linhas);
-    printf("%s\n", texto);
-
-    printf("Informe um ingrediente a procurar: ");
-    scanf("%s", ing);
     
-    printf("%p\n\n", strstr(texto, ing));
+    printf("%p\n\n", strstr(texto, ingrediente));
 
-    if (strstr(texto, ing) != NULL) {
-        printf("Ingrediente <%s> encontrado!\n", ing);
+    if (strstr(texto, ingrediente) != NULL) {
+        return texto;
     } else {
-        printf("Esta receita não possui <%s>.\n", ing);
+        return NULL;
     }
 
 
-    return 0;
+    return NULL;
 }
 
 //Feita por Flávius Gorgônio
