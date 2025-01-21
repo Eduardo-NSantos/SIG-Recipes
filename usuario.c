@@ -160,7 +160,6 @@ void cadastro(void) {
     usuario->status = '1';
     if(gravacao_usuario("usuarios.dat", usuario)){
         printf("//                 ---== Usuário cadastrado com sucesso ==---                 //\n");
-        printf("ID: %d", usuario->id);
     }else{
         printf("//                   ---== Erro ao realizar cadastro ==---                    //\n");
     }
