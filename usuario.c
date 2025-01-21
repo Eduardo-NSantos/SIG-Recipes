@@ -80,6 +80,13 @@ char menu_usuario(void) {
 void ver_dados(int id) {
     Usuario* usuario;
     usuario = buscaUsuario(id);
+    char status[8];
+
+    if(usuario->status == '1'){
+        strcpy(status, "ativo");
+    } else {
+        strcpy(status, "inativo");
+    }
 
     system("clear||cls");
     printf("\n");
@@ -93,19 +100,7 @@ void ver_dados(int id) {
     printf("//                                                                            //\n");
     printf("//    ---===  Nome: %s\n", usuario->nome);
     printf("//    ---===  Email: %s\n", usuario->email);
-    printf("//    ---===  Status: %c\n", usuario->status);
-    printf("//    ---===  Número de Receitas: (* *)                                       //\n");
-    printf("//                                                                            //\n");
-    printf("//    ---=== Informações Adicionais:                                          //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                ----==== Receitas mais Favoritadas ====----                 //\n");
-    printf("//                                                                            //\n");
-    printf("//                        (* ID *) Receita 1                                  //\n");
-    printf("//                        (* ID *) Receita 2                                  //\n");
-    printf("//                        (* ID *) Receita 3                                  //\n");
-    printf("//                        (* 0 *)  Retornar                                   //\n");
+    printf("//    ---===  Status: %s\n", status);
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
