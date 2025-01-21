@@ -2,6 +2,8 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include "receitas.h"
 #include "usuario.h"
 #define max 30
@@ -215,6 +217,7 @@ int gravacao_receita(char* arquivo, Rec* receita){
     
     // salva os ingredientes num arquivo txt
     char caminho[255];
+    mkdir("ingredientes", 0777);
     sprintf(caminho, "ingredientes/%s.txt", receita->receita);
     FILE* arquivo_receita = fopen(caminho, "w");
     fprintf(arquivo_receita, "%s", receita->ingredientes);
