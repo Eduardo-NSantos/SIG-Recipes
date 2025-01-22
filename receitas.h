@@ -20,5 +20,4 @@ int altera_receita(int);
 void deleta_receita(void);
 void expandir_receita(int);
 int ver_receitas(void);
-
-
+int receitas_por_ingrediente(char*);

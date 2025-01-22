@@ -407,4 +407,42 @@ void expandir_receita(int id) {
     free(receita);
 }
 
+int receitas_por_ingrediente(char *arquivo){
+    int conta_receitas = 0;
 
+    FILE *fp = fopen(arquivo, "rb+");
+    if (fp == NULL){
+        printf("//  ingrediente não encontrado");
+        getchar();
+        return 0;
+    }
+    
+    system("clear||cls");
+    printf("Ingrediente desejado: ");
+    char* ingrediente = input();
+    Rec receita;
+    while (fread(&receita, sizeof(Rec), 1, fp)){
+        if (strstr(receita.ingredientes, ingrediente) && receita.status) {
+            printf("===============================================================================================\n");
+            printf("//  Nome da receita: %s\n", receita.receita);
+            printf("//  Tempo de preparo: %s\n", receita.tempo);
+            printf("//  Ingredientes: %s\n", receita.ingredientes);
+            printf("//  Materiais: %s\n", receita.materiais);
+            printf("//  Modo de preparo: %s\n", receita.modo);
+
+            conta_receitas++;
+        }
+    }
+
+    if(conta_receitas == 0){
+        printf("===============================================================================================");
+        printf("// Ingrediente não encontrado");
+    }
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    fclose(fp);
+    return 0;
+}

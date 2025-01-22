@@ -16,6 +16,9 @@ void modulo_relatorio(int id_usuario) {
             case '2':
                 ver_receitas();
                 break;
+            case '3':
+                receitas_por_ingrediente("receitas.dat");
+                break;
         }
     } while (opcao != '0');
 }
