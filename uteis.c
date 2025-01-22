@@ -433,3 +433,24 @@ Rec* buscaReceita(int id) {
 
     return NULL;
 }
+
+int buscaStatusUsuario(int id) {
+    FILE* file;
+    Usuario usuario;
+    int status = -1;
+
+    file = fopen("usuarios.dat", "rb");
+    if (file == NULL) {
+        return -1;
+    }
+
+    while (fread(&usuario, sizeof(Usuario), 1, file)) {
+        if (usuario.id == id) {
+            status = usuario.status;
+            break;
+        }
+    }
+
+    fclose(file);
+    return status;
+}
