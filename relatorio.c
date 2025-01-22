@@ -6,6 +6,7 @@
 
 void modulo_relatorio(int id_usuario) {
     char opcao;
+    int id_receita;
 
     do {
         opcao = menu_relatorio();
@@ -14,7 +15,11 @@ void modulo_relatorio(int id_usuario) {
                 ver_dados(id_usuario);
                 break;
             case '2':
-                ver_receitas();
+                id_receita = ver_receitas();
+                if(id_receita == 0){
+                    break;
+                }
+                expandir_receita(id_receita);
                 break;
             case '3':
                 receitas_por_ingrediente("receitas.dat");
