@@ -214,14 +214,6 @@ int gravacao_receita(char* arquivo, Rec* receita){
     }
 
     receita->id = contador;
-    
-    // salva os ingredientes num arquivo txt
-    char caminho[255];
-    mkdir("ingredientes", 0777);
-    sprintf(caminho, "ingredientes/%s.txt", receita->receita);
-    FILE* arquivo_receita = fopen(caminho, "w");
-    fprintf(arquivo_receita, "%s", receita->ingredientes);
-    fclose(arquivo_receita);
 
     fwrite(receita, sizeof(Rec), 1, file);
     fclose(file);
