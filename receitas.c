@@ -39,7 +39,7 @@ void modulo_cozinheiro(int id_usuario) {
                 cadastra_receita(id_usuario);
                 break;
             case '2':
-                altera_receita();
+                altera_receita(id_usuario);
                 break;
             case '3':
                 deleta_receita();
@@ -189,8 +189,20 @@ void cadastra_receita(int id_cozinheiro) {
 
 
 // --== * Altera Receitas  * ==-- //
-int altera_receita(void) {
+int altera_receita(int id_cozinheiro) {
     int id_receita = ver_receitas();
+
+    Rec* receita_atual = buscaReceita(id_receita);
+    if(receita_atual->id_cozinheiro != id_cozinheiro){
+        printf("//    Essa receita não e sua, você só pode alterar suas próprias receitas!\n");
+        printf("\n");
+        printf("                    -------======= *  * =======-------                    \n");
+        printf("                  ---== Aperte ENTER para continuar ==---                 \n");
+        getchar();
+
+        return 0;
+    }
+
     if(id_receita == 0){
         return -1;
     }
@@ -286,6 +298,12 @@ int altera_receita(void) {
         printf("--== Inválido, digite novamente: ");
         novo_modo = input();
     }
+    preencheReceita(0, nova_receita, nova_descricao, novo_ingredientes, novo_materiais, novo_tempo, novo_modo, novo_complex, dados);
+    if(atualiza_receita("receitas.dat", id_receita, dados)){
+        printf("//                   ---== Receita editada com sucesso ==---                  //\n");
+    }else{
+        printf("//                     ---== Erro ao realizar edição ==---                    //\n");
+    }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
@@ -293,7 +311,6 @@ int altera_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(0, nova_receita, nova_descricao, novo_ingredientes, novo_materiais, novo_tempo, novo_modo, novo_complex, dados);
 
     free(nova_receita);
     free(novo_complex);

@@ -17,6 +17,7 @@ int valida_modo(char*);
 int gravacao_receita(char*, Rec* receita);
 int gravacao_usuario(char*, Usuario* usuario);
 int autentica_usuario(char*, char*);
+int atualiza_receita(char*, int, Rec*);
 int atualizaUsuario(char*, int, Usuario*);
 Usuario* buscaUsuario(int);
 Rec** listaReceitas(void);

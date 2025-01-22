@@ -278,6 +278,36 @@ int autentica_usuario(char* email, char* senha) {
     return 0;
 }
 
+int atualiza_receita(char *arquivo, int id, Rec* nova_receita){
+    FILE *fp = fopen(arquivo, "rb+");
+    if (fp == NULL){
+        perror("Erro ao abrir o arquivo");
+        return 0;
+    }
+
+    Rec receita_atual;
+    while (fread(&receita_atual, sizeof(Rec), 1, fp)){
+        if (receita_atual.id == id) {
+            fseek(fp, -sizeof(Rec), SEEK_CUR);
+
+            nova_receita->id = receita_atual.id;
+            nova_receita->id_cozinheiro = receita_atual.id_cozinheiro;
+            nova_receita->status = receita_atual.status;
+
+            if (!fwrite(nova_receita, sizeof(Rec), 1, fp)){
+                fclose(fp);
+                return 0;
+            }
+
+            fclose(fp);
+            return 1;
+        }
+    }
+
+    fclose(fp);
+    return 0;
+}
+
 int atualizaUsuario(char *arquivo, int id, Usuario* novoUsuario){
     FILE *fp = fopen(arquivo, "rb+");
     if (fp == NULL){
