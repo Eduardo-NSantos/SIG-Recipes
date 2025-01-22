@@ -330,27 +330,27 @@ int ver_receitas(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    for (int i = 0; i < tamanhoarray; i++) {
-        printf("//    (* %d *) %s\n", i+1, v_receitas[i]->receita);    
+    if(tamanhoarray <= 0) {
+        printf("//    Nenhuma receita cadastrada                                              //\n");
+    } else {
+        for (int i = 0; i < tamanhoarray; i++) {
+            printf("//    (* %d *) %s\n", i+1, v_receitas[i]->receita);    
+        }
     }
     printf("//                                                                            //\n");
     printf("//    (* 0 *) Retornar                                                        //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                        ---=== * Filtrar por * ===---                       //\n");
-    printf("//                                                                            //\n");
-    printf("//                            --= ( * Nome * ) =--                            //\n");
-    printf("//                            --= ( * Data * ) =--                            //\n");
-    printf("//                        --= ( * Ingredientes * ) =--                        //\n");
-    printf("//                        --= ( * Complexidade * ) =--                        //\n");
-    printf("//                         --= ( * Favoritos * ) =--                          //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("               --== Digite o ID da receita: ");
     scanf(" %d", &opcao);
     getchar();
+
+    while(opcao < 0 || opcao > tamanhoarray){
+        printf("         --== ID inválido, tente novamente: ");
+        scanf(" %d", &opcao);
+        getchar();
+    }
 
     for (int i = 0; i < tamanhoarray; i++) {
         free(v_receitas[i]);
