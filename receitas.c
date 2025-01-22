@@ -412,7 +412,7 @@ int receitas_por_ingrediente(char *arquivo){
 
     FILE *fp = fopen(arquivo, "rb+");
     if (fp == NULL){
-        printf("//  ingrediente não encontrado");
+        printf("//  Não foi possivel realizar a busca");
         getchar();
         return 0;
     }
