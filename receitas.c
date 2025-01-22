@@ -189,18 +189,36 @@ void cadastra_receita(int id_cozinheiro) {
 
 
 // --== * Altera Receitas  * ==-- //
-void altera_receita(void) {
-    char* receita;
-    char* descricao;
-    char* ingredientes;
-    char* materiais;
-    char* tempo;
-    char* modo;
-    char* complex;
+int altera_receita(void) {
+    int id_receita = ver_receitas();
+    if(id_receita == 0){
+        return -1;
+    }
+    printf("//    Tem certeza que deseja alterar essa receita?\n");
+    printf("//    1 - Sim\n");
+    printf("//    2 - Não\n");
+    char* escolha = input();
+    if(strcmp(escolha, "1")){
+        printf("//    Você escolheu um digito diferente de 1, portanto sua resposta será considerada como 'não'\n");
+        printf("\n");
+        printf("                       -------======= *  * =======-------                       \n");
+        printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+        getchar();
+
+        return 0;
+    }
+
+    char* nova_receita;
+    char* nova_descricao;
+    char* novo_ingredientes;
+    char* novo_materiais;
+    char* novo_tempo;
+    char* novo_modo;
+    char* novo_complex;
 
     Rec* dados;
     dados = (Rec*) malloc(sizeof(Rec));
-    
+
     system("clear||cls");
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -211,62 +229,62 @@ void altera_receita(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    printf("//         --== Nome da Receita: ");
-    receita = input();
-    while (!valida_receita(receita)) {
+    printf("//         --== Novo nome da Receita: ");
+    nova_receita = input();
+    while (!valida_receita(nova_receita)) {
         printf("//         --== Dado inválido, digite novamente: ");
-        receita = input();
+        nova_receita = input();
     }
 
     printf("//                                                                            //\n");
-    printf("//         --== Complexidade (1-5): ");
-    complex = input();
-    while (!valida_complexidade(complex)) {
+    printf("//         --== Nova complexidade (1-5): ");
+    novo_complex = input();
+    while (!valida_complexidade(novo_complex)) {
         printf("//         --== Dado inválido, digite novamente: ");
-        complex = input();
+        novo_complex = input();
     }
 
     printf("//                                                                            //\n");
-    printf("//         --== Tempo de Preparo (Formato 00:00): ");
-    tempo = input();
-    while (!valida_tempo(tempo)) {
+    printf("//         --== Novo tempo de Preparo (Formato 00:00): ");
+    novo_tempo = input();
+    while (!valida_tempo(novo_tempo)) {
         printf("//         --== Dado inválido, digite novamente: ");
-        tempo = input();
+        novo_tempo = input();
     }
 
     printf("//                                                                            //\n"); 
-    printf("//         --== Ingredientes: ");
-    ingredientes = input();
-    while (!valida_ingredientes(ingredientes)) {
+    printf("//         --== Novos ingredientes: ");
+    novo_ingredientes = input();
+    while (!valida_ingredientes(novo_ingredientes)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        ingredientes = input();
+        novo_ingredientes = input();
     }
 
-    printf("//         --== Materiais: ");
-    materiais = input();
-    while (!valida_materiais(materiais)) {
+    printf("//         --== Novos materiais: ");
+    novo_materiais = input();
+    while (!valida_materiais(novo_materiais)) {
         printf("//         --== Valor inválido, digite novamente: ");
-        materiais = input();
+        novo_materiais = input();
     }
 
     printf("//                                                                            //\n");
-    printf("//                         ---== * Descricao * ==---                          //\n");
+    printf("//                      ---== * Nova descricao * ==---                        //\n");
     printf("\n");
     printf("--== ");                                                 
-    descricao = input();
-    while (!valida_descricao(descricao)) {
+    nova_descricao = input();
+    while (!valida_descricao(nova_descricao)) {
         printf("--== Inválido, digite novamente: ");
-        descricao = input();
+        nova_descricao = input();
     }
 
     printf("//                                                                            //\n"); 
-    printf("//                       ---== * Modo de Preparo * ==---                      //\n");
+    printf("//                    ---== * Novo modo de Preparo * ==---                    //\n");
     printf("\n");
     printf("--== ");
-    modo = input();
-    while (!valida_modo(modo)) {
+    novo_modo = input();
+    while (!valida_modo(novo_modo)) {
         printf("--== Inválido, digite novamente: ");
-        modo = input();
+        novo_modo = input();
     }
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -275,16 +293,18 @@ void altera_receita(void) {
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
 
-    preencheReceita(0, receita, descricao, ingredientes, materiais, tempo, modo, complex, dados);
+    preencheReceita(0, nova_receita, nova_descricao, novo_ingredientes, novo_materiais, novo_tempo, novo_modo, novo_complex, dados);
 
-    free(receita);
-    free(complex);
-    free(ingredientes);
-    free(materiais);
-    free(tempo);
-    free(descricao);
-    free(modo);
+    free(nova_receita);
+    free(novo_complex);
+    free(novo_ingredientes);
+    free(novo_materiais);
+    free(novo_tempo);
+    free(nova_descricao);
+    free(novo_modo);
     free(dados);
+
+    return 1;
 }
 
 
