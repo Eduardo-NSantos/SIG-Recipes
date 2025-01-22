@@ -1,29 +1,8 @@
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                Universidade Federal do Rio Grande do Norte                 //
-//                         Disciplina de Programação                          //
-//                          Prof, Flavius Gorgônio                            //
-//                      Moisés Lucena, Isaque Guimarães                       //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                Versão 0.4                                  //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "relatorio.h"
 #include "receitas.h"
 #include "usuario.h"
-
-
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                  FUNÇÕES                                   //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
 
 void modulo_relatorio(int id_usuario) {
     char opcao;

@@ -1,17 +1,3 @@
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                Universidade Federal do Rio Grande do Norte                 //
-//                         Disciplina de Programação                          //
-//                          Prof, Flavius Gorgônio                            //
-//                      Moisés Lucena, Isaque Guimarães                       //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                Versão 0.4                                  //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-
-
 // --== * Assinaturas * ==-- //
 typedef struct receita Rec;
 struct receita {

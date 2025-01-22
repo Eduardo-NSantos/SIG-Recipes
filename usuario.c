@@ -1,32 +1,8 @@
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                Universidade Federal do Rio Grande do Norte                 //
-//                         Disciplina de Programação                          //
-//                          Prof, Flavius Gorgônio                            //
-//                      Moisés Lucena, Isaque Guimarães                       //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                Versão 0.4                                  //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "usuario.h"
 #include "uteis.h"
-
-
-
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                  FUNÇÕES                                   //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-
 
 
 void modulo_usuario(int id) {
@@ -47,7 +23,6 @@ void modulo_usuario(int id) {
         }
     } while (opcao != '0');
 }
-
 
 
 // --== * Menu do Usuário * ==-- //

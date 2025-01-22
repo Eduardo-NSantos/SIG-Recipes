@@ -1,16 +1,3 @@
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                Universidade Federal do Rio Grande do Norte                 //
-//                         Disciplina de Programação                          //
-//                          Prof, Flavius Gorgônio                            //
-//                      Moisés Lucena, Isaque Guimarães                       //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-//                                                                            //
-//                                Versão 0.8                                  //
-//                                                                            //
-//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "informacoes.h"
