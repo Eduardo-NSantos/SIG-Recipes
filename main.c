@@ -4,6 +4,7 @@
 #include "usuario.h"
 #include "receitas.h"
 #include "relatorio.h"
+#include "uteis.h"
 
 
 // --== * Assinaturas * ==-- //
@@ -16,15 +17,20 @@ int main(void) {
     char opcao;
     char opcao_principal;
     int id;
+    char status;
+    
     
     do {
         opcao = menu_inicio();
         switch (opcao) {
             case '1':
                 id = autenticacao();
+                status = buscaStatusUsuario(id);
+                printf("status do usuário = %c", status);
                 if (id == 0) {
                     break;
-                } else {
+                }
+                else {
                     do {
                     opcao_principal = menu_principal();
                     switch (opcao_principal) {

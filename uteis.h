@@ -23,4 +23,4 @@ Usuario* buscaUsuario(int);
 Rec** listaReceitas(void);
 int contaReceitas(char*);
 Rec* buscaReceita(int);
-int buscaStatusUsuario(int id);
+char buscaStatusUsuario(int id);
