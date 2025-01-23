@@ -289,6 +289,8 @@ void deleta_conta(int id) {
 
     if (opcao == 's' || opcao == 'S') {
         usuario->status = '0';
+        long posicao = (id - 1) * sizeof(Usuario);
+        fseek(file, posicao, SEEK_SET);
         fwrite(usuario, sizeof(Usuario), 1, file);
         printf("\n");
         printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
@@ -322,13 +324,11 @@ void lista_usuarios(char *nome_arquivo) {
     Usuario usuario;
     system("clear||cls");
     while (fread(&usuario, sizeof(Usuario), 1, file)) {
-        if (usuario.status == '1') { 
-            printf("========================================================================\n");
-            printf("//  %d - ", usuario.id); 
-            printf("Nome: %s\n", usuario.nome);
-            printf("//    - Email: %s\n", usuario.email);
-            printf("//    - Status: %s\n", usuario.status == '1' ? "Ativo" : "Inativo");
-        }
+        printf("========================================================================\n");
+        printf("//  %d - ", usuario.id); 
+        printf("Nome: %s\n", usuario.nome);
+        printf("//    - Email: %s\n", usuario.email);
+        printf("//    - Status: %s\n", usuario.status == '1' ? "Ativo" : "Inativo");
     }
 
     printf("\n ==| Tecle enter para continuar");
