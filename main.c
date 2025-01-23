@@ -26,11 +26,19 @@ int main(void) {
             case '1':
                 id = autenticacao();
                 status = buscaStatusUsuario(id);
-                printf("status do usuário = %c", status);
+                
                 if (id == 0) {
                     break;
                 }
                 else {
+                    if (status == '0'){
+                    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+                    printf("//                                                                            //\n");
+                    printf("//               Você foi seu cadastro foi excluído do  programa              //\n");
+                    printf("//                                                                            //\n");
+                    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+                    getchar();
+                }else{
                     do {
                     opcao_principal = menu_principal();
                     switch (opcao_principal) {
@@ -49,6 +57,7 @@ int main(void) {
                         }    
                 } while (opcao_principal != '0');
                 break;
+                }
                 }
             case '2':
                 cadastro();
