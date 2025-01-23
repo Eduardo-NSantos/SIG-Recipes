@@ -336,3 +336,54 @@ void lista_usuarios(char *nome_arquivo) {
 
     fclose(file);
 }
+
+int compararNomes(const void* a, const void* b) {
+    Usuario* usuarioA = (Usuario*)a;
+    Usuario* usuarioB = (Usuario*)b;
+    return strcmp(usuarioA->nome, usuarioB->nome);
+}
+
+void buscarEListarUsuariosOrdenados(const char* arquivo) {
+    FILE* file;
+    Usuario* usuarios;
+    Usuario usuarioTemp;
+    int quantidade = 0;
+    int capacidade = 10;
+
+    usuarios = (Usuario*)malloc(capacidade * sizeof(Usuario));
+    if (usuarios == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return;
+    }
+
+    file = fopen(arquivo, "rb");
+    if (file == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        free(usuarios);
+        return;
+    }
+
+    while (fread(&usuarioTemp, sizeof(Usuario), 1, file)) {
+        if (quantidade >= capacidade) {
+            capacidade *= 2;
+            usuarios = (Usuario*)realloc(usuarios, capacidade * sizeof(Usuario));
+            if (usuarios == NULL) {
+                printf("Erro ao realocar memória.\n");
+                fclose(file);
+                return;
+            }
+        }
+        usuarios[quantidade++] = usuarioTemp;
+    }
+
+    fclose(file);
+
+    qsort(usuarios, quantidade, sizeof(Usuario), compararNomes);
+
+    printf("Lista de usuários em ordem alfabética:\n");
+    for (int i = 0; i < quantidade; i++) {
+        printf("ID: %d, Nome: %s, Status: %c\n", usuarios[i].id, usuarios[i].nome, usuarios[i].status);
+    }
+
+    free(usuarios);
+}
