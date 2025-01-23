@@ -36,6 +36,7 @@ int main(void) {
                         printf("//                    seu cadastro foi excluído do  programa                  //\n");
                         printf("//                                                                            //\n");
                         printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+                        printf("Tecle enter para continuar...\n");
                         getchar();
                     }else{
                         do {
