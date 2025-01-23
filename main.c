@@ -33,7 +33,7 @@ int main(void) {
                     if (status == '0'){
                         printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
                         printf("//                                                                            //\n");
-                        printf("//               Você foi seu cadastro foi excluído do  programa              //\n");
+                        printf("//                    seu cadastro foi excluído do  programa                  //\n");
                         printf("//                                                                            //\n");
                         printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
                         getchar();
