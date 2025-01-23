@@ -29,36 +29,36 @@ int main(void) {
                 
                 if (id == 0) {
                     break;
-                }
-                else {
+                }else {
                     if (status == '0'){
-                    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-                    printf("//                                                                            //\n");
-                    printf("//               Você foi seu cadastro foi excluído do  programa              //\n");
-                    printf("//                                                                            //\n");
-                    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-                    getchar();
-                }else{
-                    do {
-                    opcao_principal = menu_principal();
-                    switch (opcao_principal) {
-                        case '1':
-                            modulo_cozinheiro(id);
-                            break;
-                        case '2':
-                            modulo_usuario(id);
-                            break;
-                        case '3':
-                            modulo_relatorio(id);
-                            break;
-                        case '4':
-                            modulo_informacoes();
-                            break;
-                        }    
-                } while (opcao_principal != '0');
+                        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+                        printf("//                                                                            //\n");
+                        printf("//               Você foi seu cadastro foi excluído do  programa              //\n");
+                        printf("//                                                                            //\n");
+                        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+                        getchar();
+                    }else{
+                        do {
+                            opcao_principal = menu_principal();
+                            switch (opcao_principal) {
+                                case '1':
+                                    modulo_cozinheiro(id);
+                                    break;
+                                case '2':
+                                    modulo_usuario(id);
+                                    break;
+                                case '3':
+                                    modulo_relatorio(id);
+                                    break;
+                                case '4':
+                                    modulo_informacoes();
+                                    break;
+                            }    
+                        } while (opcao_principal != '0');
+                        break;
+                    }
+                }
                 break;
-                }
-                }
             case '2':
                 cadastro();
                 break;
