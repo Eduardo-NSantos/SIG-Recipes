@@ -31,6 +31,7 @@ void modulo_relatorio(int id_usuario) {
                 lista_usuarios("usuarios.dat");
                 break;
             case '6':
+                printf("\n");
                 buscarEListarUsuariosOrdenados("usuarios.dat");
                 getchar();
                 break;

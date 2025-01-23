@@ -380,10 +380,19 @@ void buscarEListarUsuariosOrdenados(const char* arquivo) {
 
     qsort(usuarios, quantidade, sizeof(Usuario), compararNomes);
 
-    printf("Lista de usuários em ordem alfabética:\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//               ---== * Listar por ordem alfabética * ==---                  //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
     for (int i = 0; i < quantidade; i++) {
         printf("ID: %d, Nome: %s, Status: %c\n", usuarios[i].id, usuarios[i].nome, usuarios[i].status);
     }
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
 
     free(usuarios);
 }
