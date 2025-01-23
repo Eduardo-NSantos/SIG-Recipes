@@ -21,3 +21,4 @@ void expandir_receita(int);
 int ver_receitas(void);
 int receitas_por_ingrediente(char*);
 void deleta_receita(int, int);
+int receitas_por_materiais(char *arquivo);

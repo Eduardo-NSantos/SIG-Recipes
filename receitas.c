@@ -445,6 +445,46 @@ int receitas_por_ingrediente(char *arquivo){
     return 0;
 }
 
+int receitas_por_materiais(char *arquivo){
+    int conta_receitas = 0;
+
+    FILE *fp = fopen(arquivo, "rb+");
+    if (fp == NULL){
+        printf("//  Não foi possivel realizar a busca");
+        getchar();
+        return 0;
+    }
+    
+    system("clear||cls");
+    printf("Material desejado: ");
+    char* material = input();
+    Rec receita;
+    while (fread(&receita, sizeof(Rec), 1, fp)){
+        if (strstr(receita.materiais, material) && receita.status == '1') {
+            printf("===============================================================================================\n");
+            printf("//  Nome da receita: %s\n", receita.receita);
+            printf("//  Tempo de preparo: %s\n", receita.tempo);
+            printf("//  Ingredientes: %s\n", receita.ingredientes);
+            printf("//  Materiais: %s\n", receita.materiais);
+            printf("//  Modo de preparo: %s\n", receita.modo);
+
+            conta_receitas++;
+        }
+    }
+
+    if(conta_receitas == 0){
+        printf("===============================================================================================\n");
+        printf("// Material não encontrado");
+    }
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    fclose(fp);
+    return 0;
+}
+
 // --== * Deletar receita * ==-- //
 void deleta_receita(int id_receita, int id_cozinheiro) {
     FILE* file;
