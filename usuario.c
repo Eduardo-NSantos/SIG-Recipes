@@ -290,19 +290,49 @@ void deleta_conta(int id) {
     if (opcao == 's' || opcao == 'S') {
         usuario->status = '0';
         fwrite(usuario, sizeof(Usuario), 1, file);
+        printf("\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("//                 ---=== Usuário excluído com sucesso ===---                 //\n");
+        exit(0);
+    }else{
+        printf("\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("//                      ---=== Exclusão cancelada ===---                      //\n");
     }
 
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                 ---=== Usuário excluído com sucesso ===---                 //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
-    exit(0);
+
+    fclose(file);
+}
+
+void lista_usuarios(char *nome_arquivo) {
+    FILE *file = fopen(nome_arquivo, "rb");
+    if (file == NULL) {
+        perror("Erro ao abrir o arquivo");
+        return;
+    }
+
+    Usuario usuario;
+    system("clear||cls");
+    while (fread(&usuario, sizeof(Usuario), 1, file)) {
+        if (usuario.status == '1') { 
+            printf("========================================================================\n");
+            printf("//  %d - ", usuario.id); 
+            printf("Nome: %s\n", usuario.nome);
+            printf("//    - Email: %s\n", usuario.email);
+            printf("//    - Status: %s\n", usuario.status == '1' ? "Ativo" : "Inativo");
+        }
+    }
+
+    printf("\n ==| Tecle enter para continuar");
+    getchar();
 
     fclose(file);
 }

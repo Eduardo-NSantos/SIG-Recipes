@@ -27,6 +27,9 @@ void modulo_relatorio(int id_usuario) {
             case '4':
                 receitas_por_materiais("receitas.dat");
                 break;
+            case '5':
+                lista_usuarios("usuarios.dat");
+                break;
         }
     } while (opcao != '0');
 }
@@ -48,6 +51,7 @@ char menu_relatorio(void) {
     printf("//     (* 2 *)           ---===  * Consultar Receitas *  ===---               //\n");
     printf("//     (* 3 *)  ---===  * Consultar Receitas por ingrediente *  ===---        //\n");
     printf("//     (* 4 *)   ---===  * Consultar Receitas por materiais *  ===---         //\n");
+    printf("//     (* 5 *)           ---===  * Listar usuários *   ===---                 //\n");
     printf("//     (* 0 *)           ---===      * Retornar *      ===---                 //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
