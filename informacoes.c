@@ -61,8 +61,16 @@ void menu_equipe(void) {
     printf("//                       ---=== Isaque Guimarães ===---                       //\n");
     printf("//                 ---=== isaqueguimaraes388@gmail.com ===---                 //\n");
     printf("//                                                                            //\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---=== Eduardo Nascimento ===---                      //\n");
+    printf("//                   ---=== eduardoshw123@gmail.com ===---                    //\n");
+    printf("//                                                                            //\n");
+    printf("//                                                                            //\n");
+    printf("//                         ---=== Luiz Henrique ===---                        //\n");
+    printf("//                ---=== luizhenriquefelix138@gmail.com ===---                //\n");
+    printf("//                                                                            //\n");
     printf("//                               Disponível em:                               //\n");
-    printf("//             https://github.com/MoisesLuc/Projeto-Programacao.git           //\n");
+    printf("//                https://github.com/Eduardo-NSantos/SIG-Recipes              //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("\n");
