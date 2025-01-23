@@ -21,7 +21,11 @@ void modulo_cozinheiro(int id_usuario) {
                 altera_receita(id_usuario);
                 break;
             case '3':
-                deleta_receita();
+                id_receita = ver_receitas();
+                if(id_receita == 0){
+                    break;
+                }
+                deleta_receita(id_receita, id_usuario);
                 break;
             case '4':
                 id_receita = ver_receitas();
@@ -171,7 +175,20 @@ void cadastra_receita(int id_cozinheiro) {
 int altera_receita(int id_cozinheiro) {
     int id_receita = ver_receitas();
 
+    if(id_receita == 0){
+        return 0;
+    }
+
     Rec* receita_atual = buscaReceita(id_receita);
+    if(receita_atual->status != '1'){
+        printf("//  Essa receita está desativada!");
+        printf("\n");
+        printf("                    -------======= *  * =======-------                    \n");
+        printf("                  ---== Aperte ENTER para continuar ==---                 \n");
+        getchar();
+        return 0;
+    }
+
     if(receita_atual->id_cozinheiro != id_cozinheiro){
         printf("//    Essa receita não e sua, você só pode alterar suas próprias receitas!\n");
         printf("\n");
@@ -182,9 +199,6 @@ int altera_receita(int id_cozinheiro) {
         return 0;
     }
 
-    if(id_receita == 0){
-        return -1;
-    }
     printf("//    Tem certeza que deseja alterar essa receita?\n");
     printf("//    1 - Sim\n");
     printf("//    2 - Não\n");
@@ -305,34 +319,12 @@ int altera_receita(int id_cozinheiro) {
 
 
 
-// --== * Deleta Receita * ==-- //
-void deleta_receita(void) {
-    system("clear||cls");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//                       ---== * Deletar Receita * ==---                      //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//              ---=== Esta receita excluida permanentemente ===---           //\n");
-    printf("//                                                                            //\n");
-    printf("//                       ---=== Confirmar (S/N):  ===---                      //\n");
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("\n");
-    printf("                       -------======= *  * =======-------                       \n");
-    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
-    getchar();
-}
-
 // --== * Visualiza Receitas * ==-- //
 int ver_receitas(void) {
     Rec** v_receitas;
     int opcao;
     int tamanhoarray = contaReceitas("receitas.dat");
+    int conta_receitas = 0;
 
     v_receitas = listaReceitas();
 
@@ -346,12 +338,14 @@ int ver_receitas(void) {
     printf("\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
     printf("//                                                                            //\n");
-    if(tamanhoarray <= 0) {
-        printf("//    Nenhuma receita cadastrada                                              //\n");
-    } else {
-        for (int i = 0; i < tamanhoarray; i++) {
+    for (int i = 0; i < tamanhoarray; i++) {
+        if(v_receitas[i]->status == '1'){
             printf("//    (* %d *) %s\n", i+1, v_receitas[i]->receita);    
+            conta_receitas++;
         }
+    }
+    if(conta_receitas <= 0) {
+        printf("//    Nenhuma receita cadastrada                                              //\n");
     }
     printf("//                                                                            //\n");
     printf("//    (* 0 *) Retornar                                                        //\n");
@@ -382,23 +376,27 @@ void expandir_receita(int id) {
     Usuario* usuario = buscaUsuario(receita->id_cozinheiro); 
 
     system("clear||cls");
-    printf("\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("//    --== %s\n", receita->receita);
-    printf("//    --== Cozinheiro: %s\n", usuario->nome);
-    printf("//    --== Tempo: %s\n", receita->tempo);
-    printf("//    --== Complexidade: %s Estrela(s)\n", receita->complex);
-    printf("//                                                                            //\n");
-    printf("--== Ingredientes: %s\n", receita->ingredientes);
-    printf("--== Materiais: %s\n", receita->materiais);
-    printf("--== Descrição: %s\n", receita->descricao);
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
-    printf("//                                                                            //\n");
-    printf("--== Modo de Preparo: %s\n", receita->modo);
-    printf("//                                                                            //\n");
-    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    if(receita->status != '1'){
+        printf("//  Essa receita está desativada!");
+    }else{
+        printf("\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("//    --== %s\n", receita->receita);
+        printf("//    --== Cozinheiro: %s\n", usuario->nome);
+        printf("//    --== Tempo: %s\n", receita->tempo);
+        printf("//    --== Complexidade: %s Estrela(s)\n", receita->complex);
+        printf("//                                                                            //\n");
+        printf("--== Ingredientes: %s\n", receita->ingredientes);
+        printf("--== Materiais: %s\n", receita->materiais);
+        printf("--== Descrição: %s\n", receita->descricao);
+        printf("//                                                                            //\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("--== Modo de Preparo: %s\n", receita->modo);
+        printf("//                                                                            //\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    }
     printf("\n");
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
@@ -422,7 +420,7 @@ int receitas_por_ingrediente(char *arquivo){
     char* ingrediente = input();
     Rec receita;
     while (fread(&receita, sizeof(Rec), 1, fp)){
-        if (strstr(receita.ingredientes, ingrediente) && receita.status) {
+        if (strstr(receita.ingredientes, ingrediente) && receita.status == '1') {
             printf("===============================================================================================\n");
             printf("//  Nome da receita: %s\n", receita.receita);
             printf("//  Tempo de preparo: %s\n", receita.tempo);
@@ -435,7 +433,7 @@ int receitas_por_ingrediente(char *arquivo){
     }
 
     if(conta_receitas == 0){
-        printf("===============================================================================================");
+        printf("===============================================================================================\n");
         printf("// Ingrediente não encontrado");
     }
     printf("\n");
@@ -445,4 +443,79 @@ int receitas_por_ingrediente(char *arquivo){
 
     fclose(fp);
     return 0;
+}
+
+// --== * Deletar receita * ==-- //
+void deleta_receita(int id_receita, int id_cozinheiro) {
+    FILE* file;
+    file = fopen("receitas.dat", "r+b");
+    if (file == NULL) {
+        perror("Erro ao abrir o arquivo");
+        return;
+    }
+
+    Rec* receita;
+    receita = buscaReceita(id_receita);
+    if (receita == NULL) {
+        printf("Receita com ID %d não encontrada.\n", id_receita);
+        fclose(file);
+        return;
+    }
+
+    if(receita->id_cozinheiro != id_cozinheiro){
+        printf("//    Essa receita não e sua, você só pode alterar suas próprias receitas!\n");
+        printf("\n");
+        printf("                    -------======= *  * =======-------                    \n");
+        printf("                  ---== Aperte ENTER para continuar ==---                 \n");
+        getchar();
+
+        return;
+    }
+
+    char opcao;
+    system("clear||cls");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---== * Deletar receita * ==---                       //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("//                                                                            //\n");
+    printf("//          ---=== Tem certeza que quer deletar essa receita? ===---          //\n");
+    printf("//                                                                            //\n");
+    printf("//                      ---=== Confirmar (S/N):  ===---                       //\n");
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("               --== Escolha a opção desejada: ");
+    scanf(" %c", &opcao);
+    while (getchar() != '\n');
+
+    if (opcao == 's' || opcao == 'S') {
+        receita->status = '0';
+        long posicao = (id_receita - 1) * sizeof(Rec);
+        fseek(file, posicao, SEEK_SET);
+        fwrite(receita, sizeof(Rec), 1, file);
+        printf("\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("//                 ---=== Receita excluída com sucesso ===---                 //\n");
+    }else{
+        printf("\n");
+        printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+        printf("//                                                                            //\n");
+        printf("//                      ---=== Exclusão cancelada ===---                      //\n");
+    }
+
+    printf("//                                                                            //\n");
+    printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
+    printf("\n");
+    printf("                       -------======= *  * =======-------                       \n");
+    printf("                     ---== Aperte ENTER para continuar ==---                    \n");
+    getchar();
+
+    free(receita);
+    fclose(file);
 }

@@ -17,7 +17,7 @@ void modulo_cozinheiro(int);
 char menu_cozinheiro(void);
 void cadastra_receita(int);
 int altera_receita(int);
-void deleta_receita(void);
 void expandir_receita(int);
 int ver_receitas(void);
 int receitas_por_ingrediente(char*);
+void deleta_receita(int, int);

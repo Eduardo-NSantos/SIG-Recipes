@@ -302,6 +302,7 @@ void deleta_conta(int id) {
     printf("                       -------======= *  * =======-------                       \n");
     printf("                     ---== Aperte ENTER para continuar ==---                    \n");
     getchar();
+    exit(0);
 
     fclose(file);
 }
