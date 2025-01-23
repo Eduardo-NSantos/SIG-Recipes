@@ -16,3 +16,4 @@ void deleta_conta(int);
 int autenticacao(void);
 void cadastro(void);
 void lista_usuarios(char*);
+void buscarEListarUsuariosOrdenados(const char* arquivo);

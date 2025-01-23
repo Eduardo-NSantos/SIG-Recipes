@@ -30,6 +30,10 @@ void modulo_relatorio(int id_usuario) {
             case '5':
                 lista_usuarios("usuarios.dat");
                 break;
+            case '6':
+                buscarEListarUsuariosOrdenados("usuarios.dat");
+                getchar();
+                break;
         }
     } while (opcao != '0');
 }
@@ -52,6 +56,7 @@ char menu_relatorio(void) {
     printf("//     (* 3 *)  ---===  * Consultar Receitas por ingrediente *  ===---        //\n");
     printf("//     (* 4 *)   ---===  * Consultar Receitas por materiais *  ===---         //\n");
     printf("//     (* 5 *)           ---===  * Listar usuários *   ===---                 //\n");
+    printf("//     (* 6 *)   ---===  * Listar usuários por ordem alfabética *  ===---     //\n");
     printf("//     (* 0 *)           ---===      * Retornar *      ===---                 //\n");
     printf("//                                                                            //\n");
     printf("//((((((((((((((((((((((((((((((((((((****))))))))))))))))))))))))))))))))))))//\n");
